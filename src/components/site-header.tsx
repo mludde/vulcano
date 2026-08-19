@@ -3,8 +3,8 @@ import Link from "next/link";
 const navItems = [
   { label: "Immobili", href: "/immobili" },
   { label: "Servizi", href: "/#servizi" },
-  { label: "Chi siamo", href: "/#metodo" },
-  { label: "Recensioni", href: "/#recensioni" },
+  { label: "Chi sono", href: "/#metodo" },
+  { label: "Recensioni", href: "/recensioni" },
 ];
 
 export function SiteHeader() {

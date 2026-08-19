@@ -1,9 +1,8 @@
 import Link from "next/link";
-import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { StarRating } from "@/components/star-rating";
 import { PropertyCard } from "@/components/property-card";
+import { ReviewsCarousel } from "@/components/reviews-carousel";
 import { JsonLd } from "@/components/json-ld";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
@@ -14,34 +13,27 @@ import type { SanityProperty, SanityReview } from "@/sanity/lib/types";
 
 export const revalidate = 60;
 
-function initials(name: string) {
-  return name
-    .split(" ")
-    .map((part) => part[0])
-    .join("");
-}
-
 const stats = [
   { value: "120+", label: "Immobili venduti" },
   { value: "15 anni", label: "Di esperienza" },
-  { value: "98%", label: "Clienti soddisfatti" },
+  { value: "100%", label: "Clienti soddisfatti" },
 ];
 
 const process = [
   {
     step: "01",
-    title: "Ascoltiamo le tue esigenze",
-    body: "Che tu voglia vendere, comprare o affittare, partiamo da un colloquio per capire davvero cosa cerchi.",
+    title: "Ascolto le tue esigenze",
+    body: "Che tu voglia vendere, comprare o affittare, parto da un colloquio per capire davvero cosa cerchi.",
   },
   {
     step: "02",
-    title: "Valutiamo e valorizziamo",
-    body: "Analizziamo il mercato e prepariamo l'immobile — home staging e fotografia comprese — per farlo rendere al meglio.",
+    title: "Valuto e valorizzo",
+    body: "Analizzo il mercato e preparo l'immobile — home staging e fotografia comprese — per farlo rendere al meglio.",
   },
   {
     step: "03",
-    title: "Costruiamo la strategia",
-    body: "Un piano su misura per il risultato che vuoi ottenere, seguito passo dopo passo fino al rogito.",
+    title: "Costruisco la strategia",
+    body: "Un piano su misura per il risultato che vuoi ottenere: ti seguo passo dopo passo fino al rogito.",
   },
 ];
 
@@ -52,7 +44,7 @@ const services = [
   },
   {
     title: "Home staging & valorizzazione",
-    body: "Prepariamo l'immobile per renderlo più desiderabile e velocizzare la vendita.",
+    body: "Preparo l'immobile per renderlo più desiderabile e velocizzare la vendita.",
   },
   {
     title: "Ricerca immobili",
@@ -103,32 +95,43 @@ export default async function Home() {
       {reviewsJsonLd && <JsonLd data={reviewsJsonLd} />}
       <main className="flex-1">
         <section className="relative overflow-hidden border-b border-border">
-          <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border border-border" />
-          <div className="pointer-events-none absolute -right-6 -top-4 h-44 w-44 rounded-full bg-surface-2" />
-          <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-              Vulcano Immobiliare
-            </p>
-            <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-balance md:text-6xl font-display">
-              La casa giusta, senza sorprese.
-            </h1>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">
-              Accompagniamo chi vende e chi compra con un metodo chiaro, dalla
-              valutazione al rogito.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link
-                href="/contatti"
-                className="rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90"
+          <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-[1.3fr_1fr] md:py-32">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+                Vulcano Immobiliare
+              </p>
+              <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-balance md:text-6xl font-display">
+                La casa giusta, senza sorprese.
+              </h1>
+              <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">
+                Accompagno chi vende e chi compra con un metodo chiaro, dalla
+                valutazione al rogito.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link
+                  href="/contatti"
+                  className="rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90"
+                >
+                  Prenota una consulenza
+                </Link>
+                <a
+                  href="#servizi"
+                  className="rounded-sm border border-border px-6 py-3 text-sm font-semibold hover:bg-surface-2"
+                >
+                  Scopri i servizi
+                </a>
+              </div>
+            </div>
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-sm bg-surface-2">
+              <svg
+                viewBox="0 0 200 240"
+                className="absolute inset-0 h-full w-full text-border"
+                aria-label="Foto dell'agente immobiliare (placeholder)"
+                role="img"
               >
-                Prenota una consulenza
-              </Link>
-              <a
-                href="#servizi"
-                className="rounded-sm border border-border px-6 py-3 text-sm font-semibold hover:bg-surface-2"
-              >
-                Scopri i servizi
-              </a>
+                <circle cx="100" cy="95" r="48" fill="currentColor" />
+                <path d="M20 240c0-58 36-95 80-95s80 37 80 95" fill="currentColor" />
+              </svg>
             </div>
           </div>
         </section>
@@ -136,7 +139,7 @@ export default async function Home() {
         <section className="border-b border-border bg-surface">
           <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-16 sm:grid-cols-3">
             {stats.map((stat) => (
-              <div key={stat.label}>
+              <div key={stat.label} className="text-center">
                 <p className="font-display text-3xl font-semibold md:text-4xl">
                   {stat.value}
                 </p>
@@ -148,7 +151,7 @@ export default async function Home() {
 
         <section id="metodo" className="mx-auto max-w-6xl px-6 py-24">
           <h2 className="max-w-xl text-3xl font-semibold text-balance font-display">
-            La maggior parte delle agenzie parte dalla vendita. Noi partiamo da te.
+            La maggior parte delle agenzie parte dalla vendita. Io parto da te.
           </h2>
           <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
             {process.map((item) => (
@@ -168,7 +171,7 @@ export default async function Home() {
         <section id="servizi" className="border-y border-border bg-surface">
           <div className="mx-auto max-w-6xl px-6 py-24">
             <h2 className="max-w-md text-3xl font-semibold text-balance font-display">
-              I nostri servizi
+              I miei servizi
             </h2>
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
               {services.map((service) => (
@@ -228,38 +231,17 @@ export default async function Home() {
 
         <section id="recensioni" className="border-y border-border bg-surface">
           <div className="mx-auto max-w-6xl px-6 py-24">
-            <h2 className="text-3xl font-semibold text-balance font-display">
-              Cosa dicono di noi
-            </h2>
+            <div className="flex items-end justify-between gap-4">
+              <h2 className="text-3xl font-semibold text-balance font-display">
+                Cosa dicono di me
+              </h2>
+              <Link href="/recensioni" className="text-sm font-semibold text-accent">
+                Vedi tutte →
+              </Link>
+            </div>
             {reviews.length > 0 ? (
-              <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
-                {reviews.map((review) => (
-                  <div
-                    key={review._id}
-                    className="rounded-sm border border-border bg-background p-6"
-                  >
-                    <StarRating rating={review.rating} />
-                    <p className="mt-4 text-sm leading-relaxed text-foreground">
-                      “{review.text}”
-                    </p>
-                    <div className="mt-6 flex items-center gap-3">
-                      {review.authorPhoto ? (
-                        <Image
-                          src={urlFor(review.authorPhoto).width(80).height(80).url()}
-                          alt={review.authorName}
-                          width={40}
-                          height={40}
-                          className="h-10 w-10 rounded-full object-cover"
-                        />
-                      ) : (
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-2 font-display text-sm font-semibold">
-                          {initials(review.authorName)}
-                        </div>
-                      )}
-                      <p className="text-sm font-semibold">{review.authorName}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className="mt-12">
+                <ReviewsCarousel reviews={reviews} />
               </div>
             ) : (
               <p className="mt-12 text-sm text-muted">

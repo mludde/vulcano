@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "Vulcano",
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   description:
-    "Vulcano Immobiliare è un'agenzia immobiliare ad Aosta: vendita, acquisto e valorizzazione di case con un metodo chiaro, dalla valutazione al rogito.",
+    "Vulcano Immobiliare è il mio metodo per vendere, comprare e valorizzare case ad Aosta, con un percorso chiaro dalla valutazione al rogito.",
   tagline: "La casa giusta, senza sorprese.",
   email: "info@vulcanoimmobiliare.it",
   phone: "+39 000 000 0000",

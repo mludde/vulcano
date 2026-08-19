@@ -34,7 +34,7 @@ export default function Image() {
           {siteConfig.tagline}
         </div>
         <div style={{ fontSize: 30, marginTop: 28, color: "#b0a89e" }}>
-          Agenzia Immobiliare ad Aosta
+          Agente Immobiliare ad Aosta
         </div>
       </div>
     ),

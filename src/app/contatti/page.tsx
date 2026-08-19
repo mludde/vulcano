@@ -31,7 +31,7 @@ export default function ContattiPage() {
             </h1>
             <p className="mt-4 max-w-lg text-muted">
               Che tu stia cercando di vendere, comprare o affittare casa,
-              scrivici: ti rispondiamo entro un giorno lavorativo.
+              scrivimi: ti rispondo entro un giorno lavorativo.
             </p>
           </div>
         </section>

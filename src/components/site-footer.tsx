@@ -4,8 +4,8 @@ import { siteConfig } from "@/lib/site-config";
 const navItems = [
   { label: "Immobili", href: "/immobili" },
   { label: "Servizi", href: "/#servizi" },
-  { label: "Chi siamo", href: "/#metodo" },
-  { label: "Recensioni", href: "/#recensioni" },
+  { label: "Chi sono", href: "/#metodo" },
+  { label: "Recensioni", href: "/recensioni" },
   { label: "Contatti", href: "/contatti" },
 ];
 
@@ -16,7 +16,7 @@ export function SiteFooter() {
         <div>
           <p className="font-display text-xl font-semibold tracking-tight">Vulcano</p>
           <p className="mt-2 max-w-xs text-sm text-muted">
-            Agenzia immobiliare. Vendita, acquisto e valorizzazione di case.
+            Agente immobiliare. Vendita, acquisto e valorizzazione di case.
           </p>
         </div>
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">

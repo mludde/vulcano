@@ -20,7 +20,7 @@ const karla = Karla({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Agenzia Immobiliare ad Aosta`,
+    default: `${siteConfig.name} | Agente Immobiliare ad Aosta`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -30,12 +30,12 @@ export const metadata: Metadata = {
     locale: "it_IT",
     siteName: siteConfig.name,
     url: siteConfig.url,
-    title: `${siteConfig.name} | Agenzia Immobiliare ad Aosta`,
+    title: `${siteConfig.name} | Agente Immobiliare ad Aosta`,
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | Agenzia Immobiliare ad Aosta`,
+    title: `${siteConfig.name} | Agente Immobiliare ad Aosta`,
     description: siteConfig.description,
   },
   robots: siteConfig.isIndexable
