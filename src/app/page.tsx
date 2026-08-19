@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PropertyCard } from "@/components/property-card";
 import { ReviewsCarousel } from "@/components/reviews-carousel";
+import { ServicesList } from "@/components/services-list";
 import { JsonLd } from "@/components/json-ld";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
@@ -21,19 +22,37 @@ const stats = [
 
 const process = [
   {
-    step: "01",
     title: "Ascolto le tue esigenze",
     body: "Che tu voglia vendere, comprare o affittare, parto da un colloquio per capire davvero cosa cerchi.",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path
+          d="M4 12a8 8 0 1 1 3.2 6.4L4 20l1.1-3.4A7.96 7.96 0 0 1 4 12Z"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
   },
   {
-    step: "02",
     title: "Valuto e valorizzo",
     body: "Analizzo il mercato e preparo l'immobile — home staging e fotografia comprese — per farlo rendere al meglio.",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <circle cx="10.5" cy="10.5" r="6.5" strokeLinecap="round" />
+        <path d="M20 20l-4.35-4.35" strokeLinecap="round" />
+      </svg>
+    ),
   },
   {
-    step: "03",
     title: "Costruisco la strategia",
     body: "Un piano su misura per il risultato che vuoi ottenere: ti seguo passo dopo passo fino al rogito.",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M5 21V4" strokeLinecap="round" />
+        <path d="M5 5h11l-2.5 3.5L16 12H5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
   },
 ];
 
@@ -95,19 +114,24 @@ export default async function Home() {
       {reviewsJsonLd && <JsonLd data={reviewsJsonLd} />}
       <main className="flex-1">
         <section className="relative overflow-hidden border-b border-border">
-          <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-24 md:grid-cols-[1.3fr_1fr] md:py-32">
+          <div className="pointer-events-none absolute -bottom-56 -right-44 h-[30rem] w-[30rem] rounded-full border border-accent/30" />
+          <div className="pointer-events-none absolute -bottom-36 -right-24 h-72 w-72 rounded-full border border-accent/15" />
+          <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-end gap-12 px-6 py-24 md:grid-cols-[1.25fr_1fr] md:py-32">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+                <span className="h-0.5 w-4 bg-accent" />
                 Vulcano Immobiliare
               </p>
-              <h1 className="mt-4 max-w-2xl text-4xl font-semibold leading-tight text-balance md:text-6xl font-display">
-                La casa giusta, senza sorprese.
+              <h1 className="mt-5 max-w-xl text-5xl font-semibold leading-[1.05] tracking-tight text-balance md:text-7xl font-display">
+                La casa giusta,
+                <br />
+                <span className="text-accent">senza sorprese.</span>
               </h1>
-              <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">
+              <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
                 Accompagno chi vende e chi compra con un metodo chiaro, dalla
                 valutazione al rogito.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap items-center gap-6">
                 <Link
                   href="/contatti"
                   className="rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90"
@@ -116,22 +140,25 @@ export default async function Home() {
                 </Link>
                 <a
                   href="#servizi"
-                  className="rounded-sm border border-border px-6 py-3 text-sm font-semibold hover:bg-surface-2"
+                  className="border-b border-border text-sm font-semibold hover:border-foreground"
                 >
                   Scopri i servizi
                 </a>
               </div>
             </div>
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-sm bg-surface-2">
-              <svg
-                viewBox="0 0 200 240"
-                className="absolute inset-0 h-full w-full text-border"
-                aria-label="Foto dell'agente immobiliare (placeholder)"
-                role="img"
-              >
-                <circle cx="100" cy="95" r="48" fill="currentColor" />
-                <path d="M20 240c0-58 36-95 80-95s80 37 80 95" fill="currentColor" />
-              </svg>
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-xs">
+              <div className="absolute -right-4 -top-4 h-[92%] w-[92%] rounded-sm border border-accent/50" />
+              <div className="absolute bottom-0 left-0 h-[92%] w-[92%] overflow-hidden rounded-sm bg-surface-2">
+                <svg
+                  viewBox="0 0 200 240"
+                  className="h-full w-full text-border"
+                  aria-label="Foto dell'agente immobiliare (placeholder)"
+                  role="img"
+                >
+                  <circle cx="100" cy="95" r="48" fill="currentColor" />
+                  <path d="M20 240c0-58 36-95 80-95s80 37 80 95" fill="currentColor" />
+                </svg>
+              </div>
             </div>
           </div>
         </section>
@@ -155,11 +182,11 @@ export default async function Home() {
           </h2>
           <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
             {process.map((item) => (
-              <div key={item.step}>
-                <p className="font-display text-sm font-semibold text-accent">
-                  {item.step}
-                </p>
-                <h3 className="mt-3 text-lg font-semibold">{item.title}</h3>
+              <div key={item.title}>
+                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-accent/40 text-accent">
+                  {item.icon}
+                </div>
+                <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">
                   {item.body}
                 </p>
@@ -173,25 +200,7 @@ export default async function Home() {
             <h2 className="max-w-md text-3xl font-semibold text-balance font-display">
               I miei servizi
             </h2>
-            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
-              {services.map((service) => (
-                <div
-                  key={service.title}
-                  className="rounded-sm border border-border bg-background p-6"
-                >
-                  <h3 className="text-lg font-semibold">{service.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    {service.body}
-                  </p>
-                  <a
-                    href="#"
-                    className="mt-4 inline-block text-sm font-semibold text-accent"
-                  >
-                    Scopri di più →
-                  </a>
-                </div>
-              ))}
-            </div>
+            <ServicesList services={services} />
           </div>
         </section>
 
@@ -251,20 +260,23 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-6 py-24 text-center">
-          <h2 className="mx-auto max-w-xl text-3xl font-semibold text-balance font-display">
-            Ne parliamo?
-          </h2>
-          <p className="mx-auto mt-4 max-w-md text-muted">
-            Che tu stia cercando di vendere o di acquistare casa, inizia il tuo
-            percorso con Vulcano.
-          </p>
-          <Link
-            href="/contatti"
-            className="mt-8 inline-block rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90"
-          >
-            Contattaci ora
-          </Link>
+        <section className="relative mx-auto max-w-6xl overflow-hidden px-6 py-24 text-center">
+          <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 -translate-y-1/3 rounded-full border border-accent/20" />
+          <div className="relative">
+            <h2 className="mx-auto max-w-xl text-3xl font-semibold text-balance font-display">
+              Ne parliamo?
+            </h2>
+            <p className="mx-auto mt-4 max-w-md text-muted">
+              Che tu stia cercando di vendere o di acquistare casa, inizia il
+              tuo percorso con Vulcano.
+            </p>
+            <Link
+              href="/contatti"
+              className="mt-8 inline-block rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90"
+            >
+              Contattaci ora
+            </Link>
+          </div>
         </section>
       </main>
       <SiteFooter />
