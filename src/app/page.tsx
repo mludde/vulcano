@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PropertyCard } from "@/components/property-card";
@@ -149,15 +150,14 @@ export default async function Home() {
             <div className="relative mx-auto aspect-[4/5] w-full max-w-xs">
               <div className="absolute -right-4 -top-4 h-[92%] w-[92%] rounded-sm border border-accent/50" />
               <div className="absolute bottom-0 left-0 h-[92%] w-[92%] overflow-hidden rounded-sm bg-surface-2">
-                <svg
-                  viewBox="0 0 200 240"
-                  className="h-full w-full text-border"
-                  aria-label="Foto dell'agente immobiliare (placeholder)"
-                  role="img"
-                >
-                  <circle cx="100" cy="95" r="48" fill="currentColor" />
-                  <path d="M20 240c0-58 36-95 80-95s80 37 80 95" fill="currentColor" />
-                </svg>
+                <Image
+                  src="/agente.jpg"
+                  alt="Foto dell'agente immobiliare"
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(min-width: 768px) 320px, 80vw"
+                />
               </div>
             </div>
           </div>
