@@ -14,4 +14,6 @@ export const siteConfig = {
     country: "IT",
   },
   areaServed: "Aosta e dintorni",
+  // Flip to true only when the site is ready to go live and be indexed.
+  isIndexable: process.env.NEXT_PUBLIC_SITE_INDEXABLE === "true",
 };

@@ -38,7 +38,9 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} | Agenzia Immobiliare ad Aosta`,
     description: siteConfig.description,
   },
-  robots: { index: true, follow: true },
+  robots: siteConfig.isIndexable
+    ? { index: true, follow: true }
+    : { index: false, follow: false, googleBot: { index: false, follow: false } },
 };
 
 export const viewport: Viewport = {
