@@ -31,6 +31,12 @@ export const review = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({ name: "date", title: "Data", type: "date" }),
+    defineField({
+      name: "featured",
+      title: "In evidenza in home",
+      type: "boolean",
+      initialValue: false,
+    }),
   ],
   preview: {
     select: { title: "authorName", subtitle: "rating", media: "authorPhoto" },

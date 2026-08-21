@@ -22,4 +22,5 @@ export type SanityReview = {
   authorPhoto?: SanityImage;
   rating: number;
   text: string;
+  featured?: boolean;
 };

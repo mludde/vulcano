@@ -8,7 +8,11 @@ import { ServicesList } from "@/components/services-list";
 import { JsonLd } from "@/components/json-ld";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
-import { featuredPropertiesQuery, reviewsQuery } from "@/sanity/lib/queries";
+import {
+  featuredPropertiesQuery,
+  featuredReviewsQuery,
+  reviewsQuery,
+} from "@/sanity/lib/queries";
 import { formatPrice, statusLabel } from "@/sanity/lib/format";
 import { siteConfig } from "@/lib/site-config";
 import type { SanityProperty, SanityReview } from "@/sanity/lib/types";
@@ -77,13 +81,14 @@ const services = [
 ];
 
 export default async function Home() {
-  const [featuredProperties, reviews] = await Promise.all([
+  const [featuredProperties, featuredReviews, allReviews] = await Promise.all([
     client.fetch<SanityProperty[]>(featuredPropertiesQuery),
+    client.fetch<SanityReview[]>(featuredReviewsQuery),
     client.fetch<SanityReview[]>(reviewsQuery),
   ]);
 
   const reviewsJsonLd =
-    reviews.length > 0
+    allReviews.length > 0
       ? {
           "@context": "https://schema.org",
           "@type": "RealEstateAgent",
@@ -92,11 +97,12 @@ export default async function Home() {
           aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: (
-              reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length
+              allReviews.reduce((sum, review) => sum + review.rating, 0) /
+              allReviews.length
             ).toFixed(1),
-            reviewCount: reviews.length,
+            reviewCount: allReviews.length,
           },
-          review: reviews.map((review) => ({
+          review: featuredReviews.map((review) => ({
             "@type": "Review",
             author: { "@type": "Person", name: review.authorName },
             reviewRating: {
@@ -248,9 +254,9 @@ export default async function Home() {
                 Vedi tutte →
               </Link>
             </div>
-            {reviews.length > 0 ? (
+            {featuredReviews.length > 0 ? (
               <div className="mt-12">
-                <ReviewsCarousel reviews={reviews} />
+                <ReviewsCarousel reviews={featuredReviews} />
               </div>
             ) : (
               <p className="mt-12 text-sm text-muted">

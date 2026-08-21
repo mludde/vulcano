@@ -12,6 +12,10 @@ export const reviewsQuery = groq`
   *[_type == "review"] | order(date desc)
 `;
 
+export const featuredReviewsQuery = groq`
+  *[_type == "review" && featured == true] | order(date desc) [0...5]
+`;
+
 export const propertyBySlugQuery = groq`
   *[_type == "property" && slug.current == $slug][0]
 `;
