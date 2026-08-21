@@ -1,29 +1,53 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { siteConfig } from "@/lib/site-config";
+
+type Status = "idle" | "sending" | "sent" | "error";
 
 export function ContactForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const subject = `Richiesta da ${name}`;
-    const body = [
-      `Nome: ${name}`,
-      `Email: ${email}`,
-      phone ? `Telefono: ${phone}` : null,
-      "",
-      message,
-    ]
-      .filter(Boolean)
-      .join("\n");
-    window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
+    setStatus("sending");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, message }),
+      });
+      const data = await response.json();
+
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || "Invio non riuscito.");
+      }
+
+      setStatus("sent");
+      setName("");
+      setEmail("");
+      setPhone("");
+      setMessage("");
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(
+        error instanceof Error ? error.message : "Invio non riuscito.",
+      );
+    }
+  }
+
+  if (status === "sent") {
+    return (
+      <div className="rounded-sm border border-border bg-surface-2 p-6 text-sm">
+        Richiesta inviata, grazie! Ti risponderò entro un giorno lavorativo.
+      </div>
+    );
   }
 
   return (
@@ -68,11 +92,15 @@ export function ContactForm() {
           className="resize-none rounded-sm border border-border bg-surface px-4 py-2.5 text-foreground outline-none focus:border-accent"
         />
       </label>
+      {status === "error" && (
+        <p className="text-sm text-accent">{errorMessage}</p>
+      )}
       <button
         type="submit"
-        className="self-start rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90"
+        disabled={status === "sending"}
+        className="self-start rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90 disabled:opacity-60"
       >
-        Invia richiesta
+        {status === "sending" ? "Invio in corso…" : "Invia richiesta"}
       </button>
     </form>
   );
