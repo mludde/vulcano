@@ -31,8 +31,14 @@ export function SiteFooter() {
           <p>{siteConfig.phone}</p>
         </div>
       </div>
-      <div className="border-t border-border px-6 py-4 text-center text-xs text-muted">
-        © {new Date().getFullYear()} {siteConfig.name}. Tutti i diritti riservati.
+      <div className="flex flex-col items-center gap-2 border-t border-border px-6 py-4 text-center text-xs text-muted sm:flex-row sm:justify-between">
+        <p>
+          © {new Date().getFullYear()} {siteConfig.name}. Tutti i diritti
+          riservati.
+        </p>
+        <Link href="/privacy" className="hover:text-foreground">
+          Privacy e Cookie Policy
+        </Link>
       </div>
     </footer>
   );

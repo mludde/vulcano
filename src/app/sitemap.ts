@@ -13,6 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${siteConfig.url}/immobili`, changeFrequency: "daily", priority: 0.9 },
     { url: `${siteConfig.url}/contatti`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${siteConfig.url}/recensioni`, changeFrequency: "weekly", priority: 0.6 },
+    { url: `${siteConfig.url}/privacy`, changeFrequency: "yearly", priority: 0.2 },
   ];
 
   const propertyRoutes: MetadataRoute.Sitemap = slugs.map((slug) => ({
