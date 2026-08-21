@@ -12,10 +12,16 @@ export type Property = {
 
 export function PropertyCard({ title, location, price, tag, imageUrl, href }: Property) {
   const card = (
-    <div className="overflow-hidden rounded-sm border border-border">
-      <div className="relative aspect-[4/3] bg-surface-2">
+    <div className="group overflow-hidden rounded-sm border border-border">
+      <div className="relative aspect-[4/3] overflow-hidden bg-surface-2">
         {imageUrl && (
-          <Image src={imageUrl} alt={title} fill className="object-cover" />
+          <Image
+            src={imageUrl}
+            alt={title}
+            fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+          />
         )}
       </div>
       <div className="p-5">
@@ -31,9 +37,5 @@ export function PropertyCard({ title, location, price, tag, imageUrl, href }: Pr
 
   if (!href) return card;
 
-  return (
-    <Link href={href} className="block transition-opacity hover:opacity-90">
-      {card}
-    </Link>
-  );
+  return <Link href={href}>{card}</Link>;
 }

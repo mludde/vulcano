@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { PropertyListing } from "@/components/property-listing";
+import { Reveal } from "@/components/reveal";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { allPropertiesQuery } from "@/sanity/lib/queries";
@@ -34,8 +35,8 @@ export default async function ImmobiliPage() {
     <>
       <SiteHeader />
       <main className="flex-1">
-        <section className="border-b border-border">
-          <div className="mx-auto max-w-6xl px-6 py-20">
+        <section>
+          <Reveal className="mx-auto max-w-6xl px-6 py-20">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
               Immobili
             </p>
@@ -46,7 +47,7 @@ export default async function ImmobiliPage() {
               Una selezione di case in vendita e in affitto, valutate e
               seguite direttamente da me.
             </p>
-          </div>
+          </Reveal>
         </section>
 
         <section className="mx-auto max-w-6xl px-6 py-16">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ContactForm } from "@/components/contact-form";
+import { Reveal } from "@/components/reveal";
 import { siteConfig } from "@/lib/site-config";
 
 const title = "Contatti";
@@ -21,8 +22,8 @@ export default function ContattiPage() {
     <>
       <SiteHeader />
       <main className="flex-1">
-        <section className="border-b border-border">
-          <div className="mx-auto max-w-6xl px-6 py-20">
+        <section>
+          <Reveal className="mx-auto max-w-6xl px-6 py-20">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
               Contatti
             </p>
@@ -33,7 +34,7 @@ export default function ContattiPage() {
               Che tu stia cercando di vendere, comprare o affittare casa,
               scrivimi: ti rispondo entro un giorno lavorativo.
             </p>
-          </div>
+          </Reveal>
         </section>
 
         <section className="mx-auto max-w-6xl px-6 py-16">

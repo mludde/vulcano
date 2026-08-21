@@ -5,6 +5,8 @@ import { SiteFooter } from "@/components/site-footer";
 import { PropertyCard } from "@/components/property-card";
 import { ReviewsCarousel } from "@/components/reviews-carousel";
 import { ServicesList } from "@/components/services-list";
+import { Reveal } from "@/components/reveal";
+import { Parallax } from "@/components/parallax";
 import { JsonLd } from "@/components/json-ld";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
@@ -120,11 +122,17 @@ export default async function Home() {
       <SiteHeader />
       {reviewsJsonLd && <JsonLd data={reviewsJsonLd} />}
       <main className="flex-1">
-        <section className="relative overflow-hidden border-b border-border">
-          <div className="pointer-events-none absolute -bottom-56 -right-44 h-[30rem] w-[30rem] rounded-full border border-accent/30" />
-          <div className="pointer-events-none absolute -bottom-36 -right-24 h-72 w-72 rounded-full border border-accent/15" />
+        <section className="relative overflow-hidden">
+          <Parallax
+            speed={0.12}
+            className="pointer-events-none absolute -bottom-56 -right-44 h-[30rem] w-[30rem] rounded-full border border-accent/30"
+          />
+          <Parallax
+            speed={0.22}
+            className="pointer-events-none absolute -bottom-36 -right-24 h-72 w-72 rounded-full border border-accent/15"
+          />
           <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-end gap-12 px-6 py-24 md:grid-cols-[1.25fr_1fr] md:py-32">
-            <div>
+            <Reveal>
               <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                 <span className="h-0.5 w-4 bg-accent" />
                 Vulcano Immobiliare
@@ -152,8 +160,8 @@ export default async function Home() {
                   Scopri i servizi
                 </a>
               </div>
-            </div>
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-xs">
+            </Reveal>
+            <Reveal delay={150} className="relative mx-auto aspect-[4/5] w-full max-w-xs">
               <div className="absolute -right-4 -top-4 h-[92%] w-[92%] rounded-sm border border-accent/50" />
               <div className="absolute bottom-0 left-0 h-[92%] w-[92%] overflow-hidden rounded-sm bg-surface-2">
                 <Image
@@ -165,30 +173,32 @@ export default async function Home() {
                   sizes="(min-width: 768px) 320px, 80vw"
                 />
               </div>
-            </div>
+            </Reveal>
           </div>
         </section>
 
-        <section className="border-b border-border bg-surface">
+        <section className="bg-surface">
           <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-16 sm:grid-cols-3">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
+            {stats.map((stat, index) => (
+              <Reveal key={stat.label} delay={index * 100} className="text-center">
                 <p className="font-display text-3xl font-semibold md:text-4xl">
                   {stat.value}
                 </p>
                 <p className="mt-1 text-sm text-muted">{stat.label}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
 
         <section id="metodo" className="mx-auto max-w-6xl px-6 py-24">
-          <h2 className="max-w-xl text-3xl font-semibold text-balance font-display">
-            La maggior parte delle agenzie parte dalla vendita. Io parto da te.
-          </h2>
+          <Reveal>
+            <h2 className="max-w-xl text-3xl font-semibold text-balance font-display">
+              La maggior parte delle agenzie parte dalla vendita. Io parto da te.
+            </h2>
+          </Reveal>
           <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
-            {process.map((item) => (
-              <div key={item.title}>
+            {process.map((item, index) => (
+              <Reveal key={item.title} delay={index * 120}>
                 <div className="flex h-14 w-14 items-center justify-center rounded-full border border-accent/40 text-accent">
                   {item.icon}
                 </div>
@@ -196,45 +206,50 @@ export default async function Home() {
                 <p className="mt-2 text-sm leading-relaxed text-muted">
                   {item.body}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
 
-        <section id="servizi" className="border-y border-border bg-surface">
+        <section id="servizi" className="bg-surface">
           <div className="mx-auto max-w-6xl px-6 py-24">
-            <h2 className="max-w-md text-3xl font-semibold text-balance font-display">
-              I miei servizi
-            </h2>
+            <Reveal>
+              <h2 className="max-w-md text-3xl font-semibold text-balance font-display">
+                I miei servizi
+              </h2>
+            </Reveal>
             <ServicesList services={services} />
           </div>
         </section>
 
         <section id="immobili" className="mx-auto max-w-6xl px-6 py-24">
-          <div className="flex items-end justify-between gap-4">
-            <h2 className="text-3xl font-semibold text-balance font-display">
-              Immobili in evidenza
-            </h2>
-            <Link href="/immobili" className="text-sm font-semibold text-accent">
-              Vedi tutti →
-            </Link>
-          </div>
+          <Reveal>
+            <div className="flex items-end justify-between gap-4">
+              <h2 className="text-3xl font-semibold text-balance font-display">
+                Immobili in evidenza
+              </h2>
+              <Link href="/immobili" className="text-sm font-semibold text-accent">
+                Vedi tutti →
+              </Link>
+            </div>
+          </Reveal>
           {featuredProperties.length > 0 ? (
             <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
-              {featuredProperties.map((property) => (
-                <PropertyCard
-                  key={property._id}
-                  title={property.title}
-                  location={property.location}
-                  price={formatPrice(property.price, property.priceUnit)}
-                  tag={statusLabel(property.status)}
-                  imageUrl={
-                    property.images?.[0]
-                      ? urlFor(property.images[0]).width(600).height(450).url()
-                      : undefined
-                  }
-                  href={property.slug?.current ? `/immobili/${property.slug.current}` : undefined}
-                />
+              {featuredProperties.map((property, index) => (
+                <Reveal key={property._id} delay={index * 120}>
+                  <PropertyCard
+                    title={property.title}
+                    location={property.location}
+                    price={formatPrice(property.price, property.priceUnit)}
+                    tag={statusLabel(property.status)}
+                    imageUrl={
+                      property.images?.[0]
+                        ? urlFor(property.images[0]).width(600).height(450).url()
+                        : undefined
+                    }
+                    href={property.slug?.current ? `/immobili/${property.slug.current}` : undefined}
+                  />
+                </Reveal>
               ))}
             </div>
           ) : (
@@ -244,16 +259,18 @@ export default async function Home() {
           )}
         </section>
 
-        <section id="recensioni" className="border-y border-border bg-surface">
+        <section id="recensioni" className="bg-surface">
           <div className="mx-auto max-w-6xl px-6 py-24">
-            <div className="flex items-end justify-between gap-4">
-              <h2 className="text-3xl font-semibold text-balance font-display">
-                Cosa dicono di me
-              </h2>
-              <Link href="/recensioni" className="text-sm font-semibold text-accent">
-                Vedi tutte →
-              </Link>
-            </div>
+            <Reveal>
+              <div className="flex items-end justify-between gap-4">
+                <h2 className="text-3xl font-semibold text-balance font-display">
+                  Cosa dicono di me
+                </h2>
+                <Link href="/recensioni" className="text-sm font-semibold text-accent">
+                  Vedi tutte →
+                </Link>
+              </div>
+            </Reveal>
             {featuredReviews.length > 0 ? (
               <div className="mt-12">
                 <ReviewsCarousel reviews={featuredReviews} />
@@ -267,8 +284,11 @@ export default async function Home() {
         </section>
 
         <section className="relative mx-auto max-w-6xl overflow-hidden px-6 py-24 text-center">
-          <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 -translate-y-1/3 rounded-full border border-accent/20" />
-          <div className="relative">
+          <Parallax
+            speed={0.18}
+            className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 -translate-y-1/3 rounded-full border border-accent/20"
+          />
+          <Reveal className="relative">
             <h2 className="mx-auto max-w-xl text-3xl font-semibold text-balance font-display">
               Ne parliamo?
             </h2>
@@ -282,7 +302,7 @@ export default async function Home() {
             >
               Contattaci ora
             </Link>
-          </div>
+          </Reveal>
         </section>
       </main>
       <SiteFooter />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ReviewCard } from "@/components/review-card";
+import { Reveal } from "@/components/reveal";
 import { client } from "@/sanity/lib/client";
 import { reviewsQuery } from "@/sanity/lib/queries";
 import type { SanityReview } from "@/sanity/lib/types";
@@ -27,8 +28,8 @@ export default async function RecensioniPage() {
     <>
       <SiteHeader />
       <main className="flex-1">
-        <section className="border-b border-border">
-          <div className="mx-auto max-w-6xl px-6 py-20">
+        <section>
+          <Reveal className="mx-auto max-w-6xl px-6 py-20">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
               Recensioni
             </p>
@@ -39,14 +40,16 @@ export default async function RecensioniPage() {
               Le esperienze di chi ha venduto, comprato o affittato casa con
               Vulcano.
             </p>
-          </div>
+          </Reveal>
         </section>
 
         <section className="mx-auto max-w-6xl px-6 py-16">
           {reviews.length > 0 ? (
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {reviews.map((review) => (
-                <ReviewCard key={review._id} review={review} />
+              {reviews.map((review, index) => (
+                <Reveal key={review._id} delay={(index % 3) * 100}>
+                  <ReviewCard review={review} />
+                </Reveal>
               ))}
             </div>
           ) : (
