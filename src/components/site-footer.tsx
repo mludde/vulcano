@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
+import { Logo } from "@/components/logo";
 
 const navItems = [
   { label: "Immobili", href: "/immobili" },
@@ -12,10 +13,10 @@ const navItems = [
 export function SiteFooter() {
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-12 md:flex-row md:items-start md:justify-between">
-        <div>
-          <p className="font-display text-xl font-semibold tracking-tight">Vulcano</p>
-          <p className="mt-2 max-w-xs text-sm text-muted">
+      <div className="mx-auto flex max-w-[1800px] flex-col gap-8 px-6 sm:px-10 lg:px-16 py-12 md:flex-row md:items-start md:justify-between">
+        <div className="items-start text-left">
+          <Logo className="items-start" />
+          <p className="mt-3 max-w-xs text-sm text-muted">
             Agente immobiliare. Vendita, acquisto e valorizzazione di case.
           </p>
         </div>
@@ -29,6 +30,7 @@ export function SiteFooter() {
         <div className="text-sm text-muted">
           <p>{siteConfig.email}</p>
           <p>{siteConfig.phone}</p>
+          <p>Rea {siteConfig.rea}</p>
         </div>
       </div>
       <div className="flex flex-col items-center gap-2 border-t border-border px-6 py-4 text-center text-xs text-muted sm:flex-row sm:justify-between">

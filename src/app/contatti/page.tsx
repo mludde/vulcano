@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const title = "Contatti";
 const description =
-  "Contatta Vulcano Immobiliare per vendere, comprare o affittare casa ad Aosta.";
+  "Contatta Valentina Vulcano per vendere, comprare o affittare casa ad Aosta.";
 
 export const metadata: Metadata = {
   title,
@@ -23,7 +23,7 @@ export default function ContattiPage() {
       <SiteHeader />
       <main className="flex-1">
         <section>
-          <Reveal className="mx-auto max-w-6xl px-6 py-20">
+          <Reveal className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-20">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
               Contatti
             </p>
@@ -37,7 +37,7 @@ export default function ContattiPage() {
           </Reveal>
         </section>
 
-        <section className="mx-auto max-w-6xl px-6 py-16">
+        <section className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-16">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-[1fr_1.4fr]">
             <div className="flex flex-col gap-8">
               <div>
@@ -62,7 +62,7 @@ export default function ContattiPage() {
               </div>
             </div>
             <div className="rounded-sm border border-border bg-surface p-8">
-              <ContactForm />
+              <ContactForm defaultSubject="Richiesta di contatto" />
             </div>
           </div>
         </section>

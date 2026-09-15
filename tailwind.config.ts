@@ -13,10 +13,12 @@ const config: Config = {
         muted: "var(--muted)",
         accent: "var(--accent)",
         "accent-foreground": "var(--accent-foreground)",
+        "accent-warm": "var(--accent-warm)",
       },
       fontFamily: {
         display: ["var(--font-fraunces)", "Georgia", "serif"],
         sans: ["var(--font-karla)", "ui-sans-serif", "system-ui", "sans-serif"],
+        script: ["var(--font-script)", "cursive"],
       },
     },
   },

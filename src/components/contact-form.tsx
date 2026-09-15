@@ -4,10 +4,15 @@ import { useState, type FormEvent } from "react";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-export function ContactForm() {
+export function ContactForm({
+  defaultSubject = "",
+}: {
+  defaultSubject?: string;
+}) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [subject, setSubject] = useState(defaultSubject);
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -21,7 +26,7 @@ export function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, message }),
+        body: JSON.stringify({ name, email, phone, subject, message }),
       });
       const data = await response.json();
 
@@ -33,6 +38,7 @@ export function ContactForm() {
       setName("");
       setEmail("");
       setPhone("");
+      setSubject(defaultSubject);
       setMessage("");
     } catch (error) {
       setStatus("error");
@@ -79,6 +85,15 @@ export function ContactForm() {
           type="tel"
           value={phone}
           onChange={(event) => setPhone(event.target.value)}
+          className="rounded-sm border border-border bg-surface px-4 py-2.5 text-foreground outline-none focus:border-accent"
+        />
+      </label>
+      <label className="flex flex-col gap-1.5 text-sm font-medium">
+        Oggetto
+        <input
+          required
+          value={subject}
+          onChange={(event) => setSubject(event.target.value)}
           className="rounded-sm border border-border bg-surface px-4 py-2.5 text-foreground outline-none focus:border-accent"
         />
       </label>

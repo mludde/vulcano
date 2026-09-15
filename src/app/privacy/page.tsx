@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const title = "Privacy e Cookie Policy";
 const description =
-  "Informativa sul trattamento dei dati personali e sull'uso dei cookie sul sito Vulcano Immobiliare.";
+  "Informativa sul trattamento dei dati personali e sull'uso dei cookie sul sito di Valentina Vulcano.";
 
 export const metadata: Metadata = {
   title,
@@ -38,9 +38,9 @@ export default function PrivacyPage() {
               <h2>Titolare del trattamento</h2>
               <p className="mt-3">
                 Il titolare del trattamento dei dati raccolti tramite questo
-                sito è <strong>[Nome e Cognome / Ragione Sociale — da
-                completare]</strong>, P.IVA/C.F. [da completare], contattabile
-                all&apos;indirizzo email {siteConfig.email}.
+                sito è <strong>{siteConfig.name}</strong>, Rea {siteConfig.rea},
+                P.IVA/C.F. [da completare], contattabile all&apos;indirizzo
+                email {siteConfig.email}.
               </p>
             </div>
 

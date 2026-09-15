@@ -121,21 +121,25 @@ export default async function Home() {
     <>
       <SiteHeader />
       {reviewsJsonLd && <JsonLd data={reviewsJsonLd} />}
-      <main className="flex-1">
+      <main className="relative flex-1">
         <section className="relative overflow-hidden">
           <Parallax
-            speed={0.12}
-            className="pointer-events-none absolute -bottom-56 -right-44 h-[30rem] w-[30rem] rounded-full border border-accent/30"
-          />
-          <Parallax
-            speed={0.22}
-            className="pointer-events-none absolute -bottom-36 -right-24 h-72 w-72 rounded-full border border-accent/15"
-          />
-          <div className="relative mx-auto grid max-w-6xl grid-cols-1 items-end gap-12 px-6 py-24 md:grid-cols-[1.25fr_1fr] md:py-32">
+            speed={0.08}
+            className="pointer-events-none absolute -left-24 -top-24 h-[34rem] w-[26rem] opacity-80"
+          >
+            <Image
+              src="/brand-wash.png"
+              alt=""
+              fill
+              className="object-contain object-left-top"
+              priority
+            />
+          </Parallax>
+          <div className="relative mx-auto grid max-w-[1800px] grid-cols-1 items-end gap-12 px-6 sm:px-10 lg:px-16 py-24 md:grid-cols-[1.25fr_1fr] md:py-32">
             <Reveal>
               <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                 <span className="h-0.5 w-4 bg-accent" />
-                Vulcano Immobiliare
+                Agente Immobiliare ad Aosta
               </p>
               <h1 className="mt-5 max-w-xl text-5xl font-semibold leading-[1.05] tracking-tight text-balance md:text-7xl font-display">
                 La casa giusta,
@@ -177,8 +181,8 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="bg-surface">
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-6 py-16 sm:grid-cols-3">
+        <section>
+          <div className="mx-auto grid max-w-[1800px] grid-cols-1 gap-8 px-6 sm:px-10 lg:px-16 py-16 sm:grid-cols-3">
             {stats.map((stat, index) => (
               <Reveal key={stat.label} delay={index * 100} className="text-center">
                 <p className="font-display text-3xl font-semibold md:text-4xl">
@@ -190,7 +194,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="metodo" className="mx-auto max-w-6xl px-6 py-24">
+        <section id="metodo" className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-24">
           <Reveal>
             <h2 className="max-w-xl text-3xl font-semibold text-balance font-display">
               La maggior parte delle agenzie parte dalla vendita. Io parto da te.
@@ -211,8 +215,8 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="servizi" className="bg-surface">
-          <div className="mx-auto max-w-6xl px-6 py-24">
+        <section id="servizi">
+          <div className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-24">
             <Reveal>
               <h2 className="max-w-md text-3xl font-semibold text-balance font-display">
                 I miei servizi
@@ -222,7 +226,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section id="immobili" className="mx-auto max-w-6xl px-6 py-24">
+        <section id="immobili" className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-24">
           <Reveal>
             <div className="flex items-end justify-between gap-4">
               <h2 className="text-3xl font-semibold text-balance font-display">
@@ -259,8 +263,8 @@ export default async function Home() {
           )}
         </section>
 
-        <section id="recensioni" className="bg-surface">
-          <div className="mx-auto max-w-6xl px-6 py-24">
+        <section id="recensioni">
+          <div className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-24">
             <Reveal>
               <div className="flex items-end justify-between gap-4">
                 <h2 className="text-3xl font-semibold text-balance font-display">
@@ -283,7 +287,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="relative mx-auto max-w-6xl overflow-hidden px-6 py-24 text-center">
+        <section className="relative mx-auto max-w-[1800px] overflow-hidden px-6 sm:px-10 lg:px-16 py-24 text-center">
           <Parallax
             speed={0.18}
             className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 -translate-y-1/3 rounded-full border border-accent/20"

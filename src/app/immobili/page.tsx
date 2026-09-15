@@ -12,7 +12,7 @@ export const revalidate = 60;
 
 const title = "Immobili in Vendita e Affitto ad Aosta";
 const description =
-  "Scopri gli immobili in vendita e in affitto seguiti da Vulcano Immobiliare ad Aosta e dintorni.";
+  "Scopri gli immobili in vendita e in affitto seguiti da Valentina Vulcano ad Aosta e dintorni.";
 
 export const metadata: Metadata = {
   title,
@@ -36,7 +36,7 @@ export default async function ImmobiliPage() {
       <SiteHeader />
       <main className="flex-1">
         <section>
-          <Reveal className="mx-auto max-w-6xl px-6 py-20">
+          <Reveal className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-20">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
               Immobili
             </p>
@@ -50,7 +50,7 @@ export default async function ImmobiliPage() {
           </Reveal>
         </section>
 
-        <section className="mx-auto max-w-6xl px-6 py-16">
+        <section className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-16">
           {withImages.length > 0 ? (
             <PropertyListing properties={withImages} />
           ) : (

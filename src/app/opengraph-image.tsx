@@ -15,8 +15,8 @@ export default function Image() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          backgroundColor: "#2b2723",
-          color: "#f6f4f0",
+          backgroundColor: "#1e2b29",
+          color: "#eaf5f3",
         }}
       >
         <div
@@ -24,7 +24,7 @@ export default function Image() {
             fontSize: 28,
             letterSpacing: 6,
             textTransform: "uppercase",
-            color: "#e8703a",
+            color: "#2dd4c7",
             fontWeight: 700,
           }}
         >
@@ -33,7 +33,7 @@ export default function Image() {
         <div style={{ fontSize: 72, fontWeight: 700, marginTop: 24, maxWidth: 960 }}>
           {siteConfig.tagline}
         </div>
-        <div style={{ fontSize: 30, marginTop: 28, color: "#b0a89e" }}>
+        <div style={{ fontSize: 30, marginTop: 28, color: "#9dbab5" }}>
           Agente Immobiliare ad Aosta
         </div>
       </div>

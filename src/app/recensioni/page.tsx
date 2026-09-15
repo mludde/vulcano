@@ -11,7 +11,7 @@ export const revalidate = 60;
 
 const title = "Recensioni";
 const description =
-  "Cosa dicono di Vulcano Immobiliare i clienti che hanno venduto, comprato o affittato casa ad Aosta.";
+  "Cosa dicono di Valentina Vulcano i clienti che hanno venduto, comprato o affittato casa ad Aosta.";
 
 export const metadata: Metadata = {
   title,
@@ -29,7 +29,7 @@ export default async function RecensioniPage() {
       <SiteHeader />
       <main className="flex-1">
         <section>
-          <Reveal className="mx-auto max-w-6xl px-6 py-20">
+          <Reveal className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-20">
             <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
               Recensioni
             </p>
@@ -43,9 +43,9 @@ export default async function RecensioniPage() {
           </Reveal>
         </section>
 
-        <section className="mx-auto max-w-6xl px-6 py-16">
+        <section className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-16">
           {reviews.length > 0 ? (
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {reviews.map((review, index) => (
                 <Reveal key={review._id} delay={(index % 3) * 100}>
                   <ReviewCard review={review} />

@@ -1,13 +1,17 @@
 export const siteConfig = {
-  name: "Vulcano Immobiliare",
-  shortName: "Vulcano",
+  name: "Valentina Vulcano",
+  // Exact word order used on the real logo/business card — for the
+  // script logotype mark specifically, not for prose.
+  logoName: "Vulcano Valentina",
+  shortName: "Valentina",
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   description:
-    "Vulcano Immobiliare è il mio metodo per vendere, comprare e valorizzare case ad Aosta, con un percorso chiaro dalla valutazione al rogito.",
+    "Sono Valentina Vulcano, agente immobiliare ad Aosta: vendo, valorizzo e ti accompagno nell'acquisto di casa con un percorso chiaro, dalla valutazione al rogito.",
   tagline: "La casa giusta, senza sorprese.",
-  email: "info@vulcanoimmobiliare.it",
-  phone: "+39 000 000 0000",
-  phoneRaw: "+390000000000",
+  email: "info@vulcanovalentina.it",
+  phone: "+39 348 974 2939",
+  phoneRaw: "+393489742939",
+  rea: "82508",
   address: {
     locality: "Aosta",
     region: "Valle d'Aosta",

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Karla } from "next/font/google";
+import { Fraunces, Karla, Alex_Brush } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/json-ld";
 import { siteConfig } from "@/lib/site-config";
@@ -15,6 +15,12 @@ const karla = Karla({
   variable: "--font-karla",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
+});
+
+const alexBrush = Alex_Brush({
+  variable: "--font-script",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -44,7 +50,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#2b2723",
+  themeColor: "#1e2b29",
 };
 
 const realEstateAgentJsonLd = {
@@ -68,7 +74,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="it"
-      className={`${fraunces.variable} ${karla.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${karla.variable} ${alexBrush.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <JsonLd data={realEstateAgentJsonLd} />

@@ -7,11 +7,11 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // Until a verified sending domain is set up in Resend, mail must be sent
 // from this shared testing address (any real "from" address will be
 // rejected by Resend for an unverified domain).
-const FROM = "Vulcano Immobiliare <onboarding@resend.dev>";
+const FROM = "Valentina Vulcano <onboarding@resend.dev>";
 
 export async function POST(request: Request) {
   const body = await request.json();
-  const { name, email, phone, message } = body as Record<string, string>;
+  const { name, email, phone, subject, message } = body as Record<string, string>;
 
   if (!name || !email || !message) {
     return NextResponse.json(
@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     from: FROM,
     to,
     replyTo: email,
-    subject: `Richiesta dal sito da ${name}`,
+    subject: subject?.trim() || `Richiesta dal sito da ${name}`,
     text: [
       `Nome: ${name}`,
       `Email: ${email}`,
