@@ -14,20 +14,6 @@
   --accent-warm: #f2b88c;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #10201e;
-    --foreground: #eaf5f3;
-    --surface: #16302c;
-    --surface-2: #1c3b36;
-    --border: #2a4a44;
-    --muted: #9dbab5;
-    --accent: #2dd4c7;
-    --accent-foreground: #10201e;
-    --accent-warm: #e0a878;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
