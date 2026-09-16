@@ -1,14 +1,7 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { Logo } from "@/components/logo";
-
-const navItems = [
-  { label: "Immobili", href: "/immobili" },
-  { label: "Servizi", href: "/#servizi" },
-  { label: "Chi sono", href: "/#metodo" },
-  { label: "Recensioni", href: "/recensioni" },
-  { label: "Contatti", href: "/contatti" },
-];
+import { NAV_ITEMS } from "@/lib/nav";
 
 export function SiteFooter() {
   return (
@@ -21,7 +14,7 @@ export function SiteFooter() {
           </p>
         </div>
         <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
-          {navItems.map((item) => (
+          {NAV_ITEMS.map((item) => (
             <Link key={item.href} href={item.href} className="hover:text-foreground">
               {item.label}
             </Link>

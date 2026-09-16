@@ -17,7 +17,17 @@ export const metadata: Metadata = {
   twitter: { title, description },
 };
 
-export default function ContattiPage() {
+type Props = {
+  searchParams: Promise<{ oggetto?: string }>;
+};
+
+export default async function ContattiPage({ searchParams }: Props) {
+  const { oggetto } = await searchParams;
+  const defaultSubject =
+    oggetto === "VENDERE" || oggetto === "COMPRARE"
+      ? oggetto
+      : "Richiesta di contatto";
+
   return (
     <>
       <SiteHeader />
@@ -61,8 +71,8 @@ export default function ContattiPage() {
                 </p>
               </div>
             </div>
-            <div className="rounded-sm border border-border bg-surface p-8">
-              <ContactForm defaultSubject="Richiesta di contatto" />
+            <div id="form" className="scroll-mt-24 rounded-sm border border-border bg-surface p-8">
+              <ContactForm key={defaultSubject} defaultSubject={defaultSubject} />
             </div>
           </div>
         </section>

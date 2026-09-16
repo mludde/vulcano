@@ -1,10 +1,17 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/lib/site-config";
+import { loadKarlaBold, loadKarlaRegular, loadKaushanScript } from "@/lib/og-font";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function Image() {
+export default async function Image() {
+  const [kaushanScript, karlaBold, karlaRegular] = await Promise.all([
+    loadKaushanScript(),
+    loadKarlaBold(),
+    loadKarlaRegular(),
+  ]);
+
   return new ImageResponse(
     (
       <div
@@ -21,23 +28,36 @@ export default function Image() {
       >
         <div
           style={{
-            fontSize: 28,
-            letterSpacing: 6,
-            textTransform: "uppercase",
+            fontSize: 52,
+            fontFamily: "Kaushan Script",
             color: "#2dd4c7",
-            fontWeight: 700,
           }}
         >
-          {siteConfig.shortName}
+          {siteConfig.logoName}
         </div>
-        <div style={{ fontSize: 72, fontWeight: 700, marginTop: 24, maxWidth: 960 }}>
+        <div
+          style={{
+            fontSize: 72,
+            fontWeight: 700,
+            fontFamily: "Karla",
+            marginTop: 24,
+            maxWidth: 960,
+          }}
+        >
           {siteConfig.tagline}
         </div>
-        <div style={{ fontSize: 30, marginTop: 28, color: "#9dbab5" }}>
+        <div style={{ fontSize: 30, fontFamily: "Karla", marginTop: 28, color: "#9dbab5" }}>
           Agente Immobiliare ad Aosta
         </div>
       </div>
     ),
-    { ...size },
+    {
+      ...size,
+      fonts: [
+        { name: "Kaushan Script", data: kaushanScript, style: "normal", weight: 400 },
+        { name: "Karla", data: karlaBold, style: "normal", weight: 700 },
+        { name: "Karla", data: karlaRegular, style: "normal", weight: 400 },
+      ],
+    },
   );
 }

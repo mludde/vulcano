@@ -5,7 +5,7 @@ export function Logo({ className = "" }: { className?: string }) {
     <span className={`inline-flex flex-col items-center leading-none ${className}`}>
       <svg
         viewBox="0 0 100 34"
-        className="h-4 w-auto text-foreground"
+        className="h-3 w-auto text-foreground sm:h-4"
         aria-hidden="true"
       >
         <path
@@ -17,7 +17,7 @@ export function Logo({ className = "" }: { className?: string }) {
           strokeLinejoin="round"
         />
       </svg>
-      <span className="font-script text-3xl leading-none">
+      <span className="whitespace-nowrap font-script text-xl leading-none sm:text-2xl md:text-3xl">
         {siteConfig.logoName}
       </span>
     </span>

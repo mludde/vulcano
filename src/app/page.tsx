@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { PropertyCard } from "@/components/property-card";
 import { ReviewsCarousel } from "@/components/reviews-carousel";
 import { ServicesList } from "@/components/services-list";
+import { BookConsultationButton } from "@/components/book-consultation-button";
 import { Reveal } from "@/components/reveal";
 import { Parallax } from "@/components/parallax";
 import { JsonLd } from "@/components/json-ld";
@@ -43,7 +44,7 @@ const process = [
   },
   {
     title: "Valuto e valorizzo",
-    body: "Analizzo il mercato e preparo l'immobile — home staging e fotografia comprese — per farlo rendere al meglio.",
+    body: "Analizzo il mercato e preparo l'immobile — valorizzazione e fotografia comprese — per farlo rendere al meglio.",
     icon: (
       <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.5">
         <circle cx="10.5" cy="10.5" r="6.5" strokeLinecap="round" />
@@ -69,15 +70,15 @@ const services = [
     body: "Una stima precisa del valore reale della tua casa, basata su dati di mercato aggiornati.",
   },
   {
-    title: "Home staging & valorizzazione",
-    body: "Preparo l'immobile per renderlo più desiderabile e velocizzare la vendita.",
+    title: "Valorizzazione immobili",
+    body: "Piccoli interventi mirati su luce, ordine e presentazione per far emergere il potenziale della casa e venderla più in fretta.",
   },
   {
-    title: "Ricerca immobili",
+    title: "Property Finding",
     body: "Un servizio dedicato a chi cerca la casa giusta, senza perdere tempo in visite inutili.",
   },
   {
-    title: "Gestione locazioni",
+    title: "Affitti",
     body: "Dalla selezione dell'inquilino alla formalizzazione del contratto, in totale sicurezza.",
   },
 ];
@@ -151,12 +152,7 @@ export default async function Home() {
                 valutazione al rogito.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-6">
-                <Link
-                  href="/contatti"
-                  className="rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90"
-                >
-                  Prenota una consulenza
-                </Link>
+                <BookConsultationButton className="rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90" />
                 <a
                   href="#servizi"
                   className="border-b border-border text-sm font-semibold hover:border-foreground"
