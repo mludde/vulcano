@@ -12,7 +12,6 @@ export function ContactForm({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [subject, setSubject] = useState(defaultSubject);
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -26,7 +25,7 @@ export function ContactForm({
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, phone, subject, message }),
+        body: JSON.stringify({ name, email, phone, subject: defaultSubject, message }),
       });
       const data = await response.json();
 
@@ -38,7 +37,6 @@ export function ContactForm({
       setName("");
       setEmail("");
       setPhone("");
-      setSubject(defaultSubject);
       setMessage("");
     } catch (error) {
       setStatus("error");
@@ -91,10 +89,9 @@ export function ContactForm({
       <label className="flex flex-col gap-1.5 text-sm font-medium">
         Oggetto
         <input
-          required
-          value={subject}
-          onChange={(event) => setSubject(event.target.value)}
-          className="rounded-sm border border-border bg-surface px-4 py-2.5 text-foreground outline-none focus:border-accent"
+          readOnly
+          value={defaultSubject}
+          className="cursor-not-allowed rounded-sm border border-border bg-surface-2 px-4 py-2.5 text-foreground outline-none"
         />
       </label>
       <label className="flex flex-col gap-1.5 text-sm font-medium">

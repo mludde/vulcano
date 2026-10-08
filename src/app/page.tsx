@@ -6,6 +6,7 @@ import { PropertyCard } from "@/components/property-card";
 import { ReviewsCarousel } from "@/components/reviews-carousel";
 import { ServicesList } from "@/components/services-list";
 import { BookConsultationButton } from "@/components/book-consultation-button";
+import { SocialLinks } from "@/components/social-links";
 import { Reveal } from "@/components/reveal";
 import { Parallax } from "@/components/parallax";
 import { JsonLd } from "@/components/json-ld";
@@ -22,16 +23,10 @@ import type { SanityProperty, SanityReview } from "@/sanity/lib/types";
 
 export const revalidate = 60;
 
-const stats = [
-  { value: "120+", label: "Immobili venduti" },
-  { value: "15 anni", label: "Di esperienza" },
-  { value: "100%", label: "Clienti soddisfatti" },
-];
-
 const process = [
   {
-    title: "Ascolto le tue esigenze",
-    body: "Che tu voglia vendere, comprare o affittare, parto da un colloquio per capire davvero cosa cerchi.",
+    title: "Ascolto con attenzione",
+    body: "Mi metto nei tuoi panni, ascolto le tue esigenze, gestisco i tuoi tempi e desideri. Perché ogni percorso immobiliare è prima di tutto un percorso personale.",
     icon: (
       <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path
@@ -44,7 +39,7 @@ const process = [
   },
   {
     title: "Valuto e valorizzo",
-    body: "Analizzo il mercato e preparo l'immobile — valorizzazione e fotografia comprese — per farlo rendere al meglio.",
+    body: "Studio il mercato, individuo le possibilità e ti preparo alla vendita. Sarò onesta anche quando la risposta non è quella che speravi di sentire, perché la fiducia nasce dalla verità.",
     icon: (
       <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.5">
         <circle cx="10.5" cy="10.5" r="6.5" strokeLinecap="round" />
@@ -53,8 +48,8 @@ const process = [
     ),
   },
   {
-    title: "Costruisco la strategia",
-    body: "Un piano su misura per il risultato che vuoi ottenere: ti seguo passo dopo passo fino al rogito.",
+    title: "Determinazione, metodo e presenza",
+    body: "Seguo ogni fase con energia e precisione, affronto gli imprevisti e cerco alternative quando servono. Sarò al tuo fianco dalla prima visita sino al rogito.",
     icon: (
       <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M5 21V4" strokeLinecap="round" />
@@ -67,19 +62,19 @@ const process = [
 const services = [
   {
     title: "Valutazione immobiliare",
-    body: "Una stima precisa del valore reale della tua casa, basata su dati di mercato aggiornati.",
+    body: "Basata su un'approfondita indagine di mercato.",
   },
   {
-    title: "Valorizzazione immobili",
-    body: "Piccoli interventi mirati su luce, ordine e presentazione per far emergere il potenziale della casa e venderla più in fretta.",
+    title: "Valorizzazione e consulenza immagine",
+    body: "Per presentare al meglio la tua casa, perché “non c'è una seconda occasione di fare una buona prima impressione”.",
   },
   {
-    title: "Property Finding",
-    body: "Un servizio dedicato a chi cerca la casa giusta, senza perdere tempo in visite inutili.",
+    title: "Strategia personalizzata",
+    body: "Concordiamo insieme il percorso di vendita.",
   },
   {
-    title: "Affitti",
-    body: "Dalla selezione dell'inquilino alla formalizzazione del contratto, in totale sicurezza.",
+    title: "Property finding",
+    body: "Vuoi comprare casa ma non hai ancora trovato quella giusta? Sono qui per cercare la soluzione più in linea con le tue esigenze abitative.",
   },
 ];
 
@@ -140,16 +135,16 @@ export default async function Home() {
             <Reveal>
               <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                 <span className="h-0.5 w-4 bg-accent" />
-                Agente Immobiliare ad Aosta
+                Agente immobiliare abilitata Valle d&apos;Aosta
               </p>
-              <h1 className="mt-5 max-w-xl text-5xl font-semibold leading-[1.05] tracking-tight text-balance md:text-7xl font-display">
-                La casa giusta,
+              <h1 className="mt-5 max-w-2xl text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl 2xl:text-6xl font-display">
+                La casa giusta per te…
                 <br />
-                <span className="text-accent">senza sorprese.</span>
+                <span className="text-accent">ieri, oggi e domani.</span>
               </h1>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
-                Accompagno chi vende e chi compra con un metodo chiaro, dalla
-                valutazione al rogito.
+                Accompagno chi vende e chi compra casa con trasparenza,
+                professionalità ed empatia.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-6">
                 <BookConsultationButton className="rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90" />
@@ -165,49 +160,15 @@ export default async function Home() {
               <div className="absolute -right-4 -top-4 h-[92%] w-[92%] rounded-sm border border-accent/50" />
               <div className="absolute bottom-0 left-0 h-[92%] w-[92%] overflow-hidden rounded-sm bg-surface-2">
                 <Image
-                  src="/agente.jpg"
-                  alt="Foto dell'agente immobiliare"
+                  src="/valentina-hero.jpg"
+                  alt="Valentina Vulcano, agente immobiliare"
                   fill
                   priority
-                  className="object-cover"
+                  className="object-cover object-[50%_25%]"
                   sizes="(min-width: 768px) 320px, 80vw"
                 />
               </div>
             </Reveal>
-          </div>
-        </section>
-
-        <section>
-          <div className="mx-auto grid max-w-[1800px] grid-cols-1 gap-8 px-6 sm:px-10 lg:px-16 py-16 sm:grid-cols-3">
-            {stats.map((stat, index) => (
-              <Reveal key={stat.label} delay={index * 100} className="text-center">
-                <p className="font-display text-3xl font-semibold md:text-4xl">
-                  {stat.value}
-                </p>
-                <p className="mt-1 text-sm text-muted">{stat.label}</p>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
-        <section id="metodo" className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-24">
-          <Reveal>
-            <h2 className="max-w-xl text-3xl font-semibold text-balance font-display">
-              La maggior parte delle agenzie parte dalla vendita. Io parto da te.
-            </h2>
-          </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
-            {process.map((item, index) => (
-              <Reveal key={item.title} delay={index * 120}>
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-accent/40 text-accent">
-                  {item.icon}
-                </div>
-                <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {item.body}
-                </p>
-              </Reveal>
-            ))}
           </div>
         </section>
 
@@ -259,6 +220,27 @@ export default async function Home() {
           )}
         </section>
 
+        <section id="metodo" className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-24">
+          <Reveal>
+            <h2 className="max-w-xl text-3xl font-semibold text-balance font-display">
+              I tuoi desideri, il mio punto di partenza.
+            </h2>
+          </Reveal>
+          <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
+            {process.map((item, index) => (
+              <Reveal key={item.title} delay={index * 120}>
+                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-accent/40 text-accent">
+                  {item.icon}
+                </div>
+                <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {item.body}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
         <section id="recensioni">
           <div className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-24">
             <Reveal>
@@ -294,14 +276,13 @@ export default async function Home() {
             </h2>
             <p className="mx-auto mt-4 max-w-md text-muted">
               Che tu stia cercando di vendere o di acquistare casa, inizia il
-              tuo percorso con Vulcano.
+              tuo percorso con me.
             </p>
-            <Link
-              href="/contatti"
+            <BookConsultationButton
+              label="Contattami ora"
               className="mt-8 inline-block rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90"
-            >
-              Contattaci ora
-            </Link>
+            />
+            <SocialLinks className="mt-6 justify-center" />
           </Reveal>
         </section>
       </main>

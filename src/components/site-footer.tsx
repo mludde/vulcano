@@ -2,6 +2,7 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { Logo } from "@/components/logo";
 import { NAV_ITEMS } from "@/lib/nav";
+import { SocialLinks } from "@/components/social-links";
 
 export function SiteFooter() {
   return (
@@ -24,6 +25,7 @@ export function SiteFooter() {
           <p>{siteConfig.email}</p>
           <p>{siteConfig.phone}</p>
           <p>Rea {siteConfig.rea}</p>
+          <SocialLinks className="mt-4" />
         </div>
       </div>
       <div className="flex flex-col items-center gap-2 border-t border-border px-6 py-4 text-center text-xs text-muted sm:flex-row sm:justify-between">

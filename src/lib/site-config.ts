@@ -7,10 +7,12 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   description:
     "Sono Valentina Vulcano, agente immobiliare ad Aosta: vendo, valorizzo e ti accompagno nell'acquisto di casa con un percorso chiaro, dalla valutazione al rogito.",
-  tagline: "La casa giusta, senza sorprese.",
+  tagline: "La casa giusta per te, ieri, oggi e domani.",
   email: "info@vulcanovalentina.it",
   phone: "+39 348 974 2939",
   phoneRaw: "+393489742939",
+  whatsappUrl: "https://wa.me/393489742939",
+  instagramUrl: "https://www.instagram.com/valentina.vulcano/",
   rea: "82508",
   address: {
     locality: "Aosta",

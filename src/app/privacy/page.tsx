@@ -45,11 +45,11 @@ export default function PrivacyPage() {
             </div>
 
             <div>
-              <h2>Quali dati raccogliamo</h2>
+              <h2>Quali dati raccolgo</h2>
               <p className="mt-3">
-                Raccogliamo dati personali esclusivamente quando compili
+                Raccolgo dati personali esclusivamente quando compili
                 volontariamente il modulo di contatto presente nella pagina{" "}
-                <em>Contatti</em>:
+                <em>Chi sono</em>:
               </p>
               <ul className="mt-3">
                 <li>Nome e cognome</li>
@@ -65,7 +65,7 @@ export default function PrivacyPage() {
             </div>
 
             <div>
-              <h2>Perché li usiamo</h2>
+              <h2>Perché li uso</h2>
               <p className="mt-3">
                 I dati inseriti nel modulo di contatto sono utilizzati
                 esclusivamente per rispondere alla tua richiesta (es.
@@ -90,7 +90,7 @@ export default function PrivacyPage() {
                   Resend
                 </a>{" "}
                 direttamente alla casella email del titolare. Non
-                conserviamo una copia separata delle richieste su database
+                conservo una copia separata delle richieste su database
                 propri: il messaggio resta unicamente nella posta elettronica
                 del titolare, con le stesse garanzie di sicurezza e
                 conservazione della sua normale corrispondenza.
@@ -123,9 +123,9 @@ export default function PrivacyPage() {
             </div>
 
             <div>
-              <h2>Quanto conserviamo i dati</h2>
+              <h2>Per quanto tempo conservo i dati</h2>
               <p className="mt-3">
-                Conserviamo i dati ricevuti tramite il modulo di contatto solo
+                Conservo i dati ricevuti tramite il modulo di contatto solo
                 per il tempo necessario a gestire la tua richiesta, salvo
                 obblighi di legge diversi o un rapporto contrattuale
                 successivo tra le parti.
@@ -157,7 +157,7 @@ export default function PrivacyPage() {
                 vigente.
               </p>
               <p className="mt-3">
-                Se in futuro dovessimo introdurre strumenti di analisi del
+                Se in futuro dovessi introdurre strumenti di analisi del
                 traffico o altri cookie non tecnici, questa pagina verrà
                 aggiornata e comparirà un banner per raccogliere il tuo
                 consenso prima dell&apos;attivazione di tali strumenti.
