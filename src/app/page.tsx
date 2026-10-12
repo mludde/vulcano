@@ -160,11 +160,11 @@ export default async function Home() {
               <div className="absolute -right-4 -top-4 h-[92%] w-[92%] rounded-sm border border-accent/50" />
               <div className="absolute bottom-0 left-0 h-[92%] w-[92%] overflow-hidden rounded-sm bg-surface-2">
                 <Image
-                  src="/valentina-hero.jpg"
+                  src="/agente.jpg"
                   alt="Valentina Vulcano, agente immobiliare"
                   fill
                   priority
-                  className="object-cover object-[50%_25%]"
+                  className="object-cover"
                   sizes="(min-width: 768px) 320px, 80vw"
                 />
               </div>

@@ -1,15 +1,15 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/lib/site-config";
-import { loadKarlaBold, loadKarlaRegular, loadKaushanScript } from "@/lib/og-font";
+import { loadArimoBold, loadArimoRegular, loadKaushanScript } from "@/lib/og-font";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
-  const [kaushanScript, karlaBold, karlaRegular] = await Promise.all([
+  const [kaushanScript, arimoBold, arimoRegular] = await Promise.all([
     loadKaushanScript(),
-    loadKarlaBold(),
-    loadKarlaRegular(),
+    loadArimoBold(),
+    loadArimoRegular(),
   ]);
 
   return new ImageResponse(
@@ -39,14 +39,14 @@ export default async function Image() {
           style={{
             fontSize: 72,
             fontWeight: 700,
-            fontFamily: "Karla",
+            fontFamily: "Arimo",
             marginTop: 24,
             maxWidth: 960,
           }}
         >
           {siteConfig.tagline}
         </div>
-        <div style={{ fontSize: 30, fontFamily: "Karla", marginTop: 28, color: "#9dbab5" }}>
+        <div style={{ fontSize: 30, fontFamily: "Arimo", marginTop: 28, color: "#9dbab5" }}>
           Agente Immobiliare ad Aosta
         </div>
       </div>
@@ -55,8 +55,8 @@ export default async function Image() {
       ...size,
       fonts: [
         { name: "Kaushan Script", data: kaushanScript, style: "normal", weight: 400 },
-        { name: "Karla", data: karlaBold, style: "normal", weight: 700 },
-        { name: "Karla", data: karlaRegular, style: "normal", weight: 400 },
+        { name: "Arimo", data: arimoBold, style: "normal", weight: 700 },
+        { name: "Arimo", data: arimoRegular, style: "normal", weight: 400 },
       ],
     },
   );

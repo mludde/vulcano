@@ -184,8 +184,7 @@ export default async function PropertyDetailPage({ params }: Params) {
               Interessato a questo immobile?
             </h2>
             <p className="mt-2 text-sm text-muted">
-              Scrivimi qualche informazione in più e ti rispondo entro un
-              giorno lavorativo.
+              Scrivimi per avere maggiori informazioni su questo immobile.
             </p>
             <div className="mt-6 rounded-sm border border-border bg-surface p-6 sm:p-8">
               <ContactForm defaultSubject={`Info immobile - ${property.title}`} />

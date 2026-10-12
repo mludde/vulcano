@@ -16,8 +16,8 @@ const config: Config = {
         "accent-warm": "var(--accent-warm)",
       },
       fontFamily: {
-        display: ["var(--font-fraunces)", "Georgia", "serif"],
-        sans: ["var(--font-karla)", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ['"Helvetica Neue"', "Helvetica", "Arial", "sans-serif"],
+        sans: ['"Helvetica Neue"', "Helvetica", "Arial", "sans-serif"],
         script: ["var(--font-script)", "cursive"],
       },
     },

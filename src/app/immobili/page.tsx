@@ -41,7 +41,7 @@ export default async function ImmobiliPage() {
               Immobili
             </p>
             <h1 className="mt-4 max-w-xl text-4xl font-semibold leading-tight text-balance md:text-5xl font-display">
-              Gli immobili che seguo
+              Proposte immobiliari
             </h1>
             <p className="mt-4 max-w-lg text-muted">
               Una selezione di case in vendita e in affitto, valutate e

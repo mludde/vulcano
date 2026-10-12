@@ -61,11 +61,11 @@ export default async function ChiSonoPage({ searchParams }: Props) {
               className="relative order-1 mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-sm bg-surface-2 md:order-2 md:mr-0"
             >
               <Image
-                src="/valentina-chi-sono.jpg"
-                alt="Valentina Vulcano alla finestra di un appartamento"
+                src="/valentina-vestito-giallo.jpg"
+                alt="Valentina Vulcano, agente immobiliare"
                 fill
                 priority
-                className="object-cover"
+                className="object-cover object-[50%_30%]"
                 sizes="(min-width: 768px) 384px, 90vw"
               />
             </Reveal>
@@ -81,7 +81,7 @@ export default async function ChiSonoPage({ searchParams }: Props) {
           </h2>
           <p className="mt-4 max-w-lg text-muted">
             Che tu stia cercando di vendere, comprare o affittare casa,
-            scrivimi: ti rispondo entro un giorno lavorativo.
+            scrivimi.
           </p>
 
           <div className="mt-12 grid grid-cols-1 gap-12 md:grid-cols-[1fr_1.4fr]">

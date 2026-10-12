@@ -12,10 +12,10 @@ export function loadKaushanScript(): Promise<ArrayBuffer> {
   return loadLocalFont("KaushanScript-Regular.ttf");
 }
 
-export function loadKarlaBold(): Promise<ArrayBuffer> {
-  return loadLocalFont("Karla-Bold.ttf");
+export function loadArimoBold(): Promise<ArrayBuffer> {
+  return loadLocalFont("Arimo-Bold.ttf");
 }
 
-export function loadKarlaRegular(): Promise<ArrayBuffer> {
-  return loadLocalFont("Karla-Regular.ttf");
+export function loadArimoRegular(): Promise<ArrayBuffer> {
+  return loadLocalFont("Arimo-Regular.ttf");
 }

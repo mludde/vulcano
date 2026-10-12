@@ -1,21 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Karla, Kaushan_Script } from "next/font/google";
+import { Kaushan_Script } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/json-ld";
 import { siteConfig } from "@/lib/site-config";
-
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  style: ["normal"],
-});
-
-const karla = Karla({
-  variable: "--font-karla",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
 
 const kaushanScript = Kaushan_Script({
   variable: "--font-script",
@@ -74,7 +61,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="it"
-      className={`${fraunces.variable} ${karla.variable} ${kaushanScript.variable} h-full antialiased`}
+      className={`${kaushanScript.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <JsonLd data={realEstateAgentJsonLd} />

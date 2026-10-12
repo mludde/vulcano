@@ -49,7 +49,7 @@ export function ContactForm({
   if (status === "sent") {
     return (
       <div className="rounded-sm border border-border bg-surface-2 p-6 text-sm">
-        Richiesta inviata, grazie! Ti risponderò entro un giorno lavorativo.
+        Richiesta inviata, grazie!
       </div>
     );
   }
