@@ -30,7 +30,7 @@ export function PropertyListing({
         <select
           value={status}
           onChange={(event) => setStatus(event.target.value as typeof status)}
-          className="rounded-sm border border-border bg-surface px-4 py-2 text-sm"
+          className="rounded-full border border-border bg-surface px-5 py-2.5 text-sm shadow-sm"
         >
           <option value="tutti">Vendita e affitto</option>
           <option value="vendita">Solo vendita</option>
@@ -39,7 +39,7 @@ export function PropertyListing({
         <select
           value={location}
           onChange={(event) => setLocation(event.target.value)}
-          className="rounded-sm border border-border bg-surface px-4 py-2 text-sm"
+          className="rounded-full border border-border bg-surface px-5 py-2.5 text-sm shadow-sm"
         >
           <option value="tutte">Tutte le località</option>
           {locations.map((loc) => (
@@ -51,7 +51,7 @@ export function PropertyListing({
       </div>
 
       {filtered.length > 0 ? (
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {filtered.map((property) => (
             <PropertyCard
               key={property._id}

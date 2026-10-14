@@ -25,32 +25,35 @@ export function ServicesList({ services }: { services: Service[] }) {
   }, [services]);
 
   return (
-    <div className="mt-8">
-      {services.map((service, index) => (
-        <div
-          key={service.title}
-          ref={(el) => {
-            rowRefs.current[index] = el;
-          }}
-          className="grid grid-cols-[3rem_1fr] items-center gap-6 border-t border-border py-7 last:border-b sm:grid-cols-[5rem_1fr]"
-        >
-          <span
-            className={
-              index === centered
-                ? "font-display text-4xl font-medium leading-none text-accent transition-colors"
-                : "font-display text-4xl font-medium leading-none text-transparent transition-colors [-webkit-text-stroke:1px_var(--border)]"
-            }
+    <div>
+      {services.map((service, index) => {
+        const active = index === centered;
+        return (
+          <div
+            key={service.title}
+            ref={(el) => {
+              rowRefs.current[index] = el;
+            }}
+            className="grid grid-cols-[2.75rem_1fr] items-baseline gap-4 border-t border-border py-8 last:border-b md:grid-cols-[4rem_1fr] md:py-10"
           >
-            {String(index + 1).padStart(2, "0")}
-          </span>
-          <div>
-            <h3 className="text-lg font-semibold">{service.title}</h3>
-            <p className="mt-1 max-w-xl text-sm leading-relaxed text-muted">
-              {service.body}
-            </p>
+            <span
+              className={`text-sm font-semibold tabular-nums tracking-[0.08em] transition-colors duration-500 ${
+                active ? "text-accent" : "text-muted/60"
+              }`}
+            >
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <div className={`transition-opacity duration-500 ${active ? "opacity-100" : "opacity-60"}`}>
+              <h3 className="text-2xl font-medium leading-tight tracking-[-0.025em] md:text-[2.1667rem]">
+                {service.title}
+              </h3>
+              <p className="mt-3 max-w-xl text-base leading-7 text-muted">
+                {service.body}
+              </p>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

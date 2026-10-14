@@ -44,24 +44,24 @@ export function BookConsultationButton({
             aria-label="Scegli il tipo di consulenza"
           >
             <div
-              className="w-full max-w-sm rounded-sm bg-surface p-8 text-center shadow-xl"
+              className="w-full max-w-sm rounded-[28px] bg-surface p-9 text-center shadow-[0_40px_90px_-30px_rgba(30,43,41,0.55)]"
               onClick={(event) => event.stopPropagation()}
             >
-              <h2 className="text-xl font-semibold text-balance font-display">
+              <h2 className="text-2xl font-medium tracking-[-0.025em] text-balance">
                 Come posso aiutarti?
               </h2>
-              <div className="mt-6 flex flex-col gap-3">
+              <div className="mt-8 flex flex-col gap-3">
                 <button
                   type="button"
                   onClick={() => goTo("VENDERE")}
-                  className="rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90"
+                  className="btn-primary w-full"
                 >
                   Desideri vendere?
                 </button>
                 <button
                   type="button"
                   onClick={() => goTo("COMPRARE")}
-                  className="rounded-sm border border-border px-6 py-3 text-sm font-semibold hover:border-foreground"
+                  className="w-full rounded-full border border-border px-7 py-3.5 text-sm font-semibold transition hover:border-foreground"
                 >
                   Desideri comprare?
                 </button>
@@ -69,7 +69,7 @@ export function BookConsultationButton({
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="mt-4 text-xs text-muted hover:text-foreground"
+                className="mt-5 text-sm text-muted transition hover:text-foreground"
               >
                 Indietro
               </button>

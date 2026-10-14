@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ReviewCard } from "@/components/review-card";
 import { Reveal } from "@/components/reveal";
+import { PhotoBand } from "@/components/photo-band";
 import { client } from "@/sanity/lib/client";
 import { reviewsQuery } from "@/sanity/lib/queries";
 import type { SanityReview } from "@/sanity/lib/types";
@@ -29,21 +30,21 @@ export default async function RecensioniPage() {
       <SiteHeader />
       <main className="flex-1">
         <section>
-          <Reveal className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-20">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-              Recensioni
-            </p>
-            <h1 className="mt-4 max-w-xl text-4xl font-semibold leading-tight text-balance md:text-5xl font-display">
+          <Reveal className="mx-auto max-w-[1800px] px-6 pb-8 pt-20 sm:px-10 md:pt-28 lg:px-16">
+            <p className="eyebrow">Recensioni</p>
+            <h1 className="display-xl mt-7">
               Cosa dicono di me
             </h1>
-            <p className="mt-4 max-w-lg text-muted">
+            <p className="mt-7 max-w-lg text-lg leading-8 text-muted">
               Le esperienze di chi ha venduto, comprato o affittato casa con
-              Vulcano.
+              me.
             </p>
           </Reveal>
         </section>
 
-        <section className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-16">
+        <PhotoBand src="/sfondi/gazebo-tavolo.jpg" position="50% 50%" />
+
+        <section className="mx-auto max-w-[1800px] px-6 pb-28 pt-12 sm:px-10 lg:px-16">
           {reviews.length > 0 ? (
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {reviews.map((review, index) => (

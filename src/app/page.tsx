@@ -7,6 +7,7 @@ import { ReviewsCarousel } from "@/components/reviews-carousel";
 import { ServicesList } from "@/components/services-list";
 import { BookConsultationButton } from "@/components/book-consultation-button";
 import { SocialLinks } from "@/components/social-links";
+import { PhotoBand } from "@/components/photo-band";
 import { Reveal } from "@/components/reveal";
 import { Parallax } from "@/components/parallax";
 import { JsonLd } from "@/components/json-ld";
@@ -28,7 +29,7 @@ const process = [
     title: "Ascolto con attenzione",
     body: "Mi metto nei tuoi panni, ascolto le tue esigenze, gestisco i tuoi tempi e desideri. Perché ogni percorso immobiliare è prima di tutto un percorso personale.",
     icon: (
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.6">
         <path
           d="M4 12a8 8 0 1 1 3.2 6.4L4 20l1.1-3.4A7.96 7.96 0 0 1 4 12Z"
           strokeLinecap="round"
@@ -41,7 +42,7 @@ const process = [
     title: "Valuto e valorizzo",
     body: "Studio il mercato, individuo le possibilità e ti preparo alla vendita. Sarò onesta anche quando la risposta non è quella che speravi di sentire, perché la fiducia nasce dalla verità.",
     icon: (
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.6">
         <circle cx="10.5" cy="10.5" r="6.5" strokeLinecap="round" />
         <path d="M20 20l-4.35-4.35" strokeLinecap="round" />
       </svg>
@@ -51,7 +52,7 @@ const process = [
     title: "Determinazione, metodo e presenza",
     body: "Seguo ogni fase con energia e precisione, affronto gli imprevisti e cerco alternative quando servono. Sarò al tuo fianco dalla prima visita sino al rogito.",
     icon: (
-      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.6">
         <path d="M5 21V4" strokeLinecap="round" />
         <path d="M5 5h11l-2.5 3.5L16 12H5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
@@ -131,130 +132,142 @@ export default async function Home() {
               priority
             />
           </Parallax>
-          <div className="relative mx-auto grid max-w-[1800px] grid-cols-1 items-end gap-12 px-6 sm:px-10 lg:px-16 py-24 md:grid-cols-[1.25fr_1fr] md:py-32">
+          <div className="relative mx-auto grid max-w-[1800px] grid-cols-1 items-center gap-14 px-6 py-20 sm:px-10 md:grid-cols-[1.45fr_1fr] md:py-28 lg:px-16">
             <Reveal>
-              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-                <span className="h-0.5 w-4 bg-accent" />
-                Agente immobiliare abilitata Valle d&apos;Aosta
-              </p>
-              <h1 className="mt-5 max-w-2xl text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl 2xl:text-6xl font-display">
+              <p className="eyebrow">Agente immobiliare abilitata Valle d&apos;Aosta</p>
+              <h1 className="display-xl mt-7">
                 La casa giusta per te…
                 <br />
                 <span className="text-accent">ieri, oggi e domani.</span>
               </h1>
-              <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
+              <p className="mt-7 max-w-md text-lg leading-8 text-muted">
                 Accompagno chi vende e chi compra casa con trasparenza,
                 professionalità ed empatia.
               </p>
-              <div className="mt-8 flex flex-wrap items-center gap-6">
-                <BookConsultationButton className="rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90" />
-                <a
-                  href="#servizi"
-                  className="border-b border-border text-sm font-semibold hover:border-foreground"
-                >
+              <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
+                <BookConsultationButton className="btn-primary" />
+                <a href="#servizi" className="btn-link">
                   Scopri i servizi
+                  <span aria-hidden="true">→</span>
                 </a>
               </div>
             </Reveal>
-            <Reveal delay={150} className="relative mx-auto aspect-[4/5] w-full max-w-xs">
-              <div className="absolute -right-4 -top-4 h-[92%] w-[92%] rounded-sm border border-accent/50" />
-              <div className="absolute bottom-0 left-0 h-[92%] w-[92%] overflow-hidden rounded-sm bg-surface-2">
+            <Reveal delay={150} className="relative mx-auto w-full max-w-sm md:justify-self-end">
+              <div className="absolute -bottom-5 -left-5 h-3/4 w-3/4 rounded-[28px] bg-surface-2" />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-b-[28px] rounded-t-[999px] bg-surface-2 shadow-[0_40px_80px_-40px_rgba(30,43,41,0.5)]">
                 <Image
-                  src="/agente.jpg"
+                  src="/valentina-hero.jpg"
                   alt="Valentina Vulcano, agente immobiliare"
                   fill
                   priority
                   className="object-cover"
-                  sizes="(min-width: 768px) 320px, 80vw"
+                  style={{ objectPosition: "50% 18%" }}
+                  sizes="(min-width: 768px) 384px, 90vw"
                 />
               </div>
             </Reveal>
           </div>
         </section>
 
-        <section id="servizi">
-          <div className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-24">
-            <Reveal>
-              <h2 className="max-w-md text-3xl font-semibold text-balance font-display">
-                I miei servizi
-              </h2>
+        <PhotoBand src="/sfondi/soggiorno-travi.jpg" position="50% 45%" />
+
+        <section id="servizi" className="scroll-mt-24">
+          <div className="mx-auto grid max-w-[1800px] gap-10 px-6 py-24 sm:px-10 md:grid-cols-[1fr_1.7fr] md:gap-20 md:py-32 lg:px-16">
+            <Reveal className="md:sticky md:top-32 md:self-start">
+              <p className="eyebrow">Servizi</p>
+              <h2 className="display-lg mt-5">I miei servizi</h2>
             </Reveal>
             <ServicesList services={services} />
           </div>
         </section>
 
-        <section id="immobili" className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-24">
-          <Reveal>
-            <div className="flex items-end justify-between gap-4">
-              <h2 className="text-3xl font-semibold text-balance font-display">
-                Immobili in evidenza
-              </h2>
-              <Link href="/immobili" className="text-sm font-semibold text-accent">
-                Vedi tutti →
-              </Link>
-            </div>
-          </Reveal>
-          {featuredProperties.length > 0 ? (
-            <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
-              {featuredProperties.map((property, index) => (
-                <Reveal key={property._id} delay={index * 120}>
-                  <PropertyCard
-                    title={property.title}
-                    location={property.location}
-                    price={formatPrice(property.price, property.priceUnit)}
-                    tag={statusLabel(property.status)}
-                    imageUrl={
-                      property.images?.[0]
-                        ? urlFor(property.images[0]).width(600).height(450).url()
-                        : undefined
-                    }
-                    href={property.slug?.current ? `/immobili/${property.slug.current}` : undefined}
-                  />
-                </Reveal>
-              ))}
-            </div>
-          ) : (
-            <p className="mt-12 text-sm text-muted">
-              Nessun immobile in evidenza al momento — torna a trovarci presto.
-            </p>
-          )}
-        </section>
-
-        <section id="metodo" className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-24">
-          <Reveal>
-            <h2 className="max-w-xl text-3xl font-semibold text-balance font-display">
-              I tuoi desideri, il mio punto di partenza.
-            </h2>
-          </Reveal>
-          <div className="mt-12 grid grid-cols-1 gap-10 md:grid-cols-3">
-            {process.map((item, index) => (
-              <Reveal key={item.title} delay={index * 120}>
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-accent/40 text-accent">
-                  {item.icon}
+        <section id="immobili">
+          <div className="mx-auto max-w-[1800px] px-6 pb-24 pt-8 sm:px-10 md:pb-32 lg:px-16">
+            <Reveal>
+              <div className="flex flex-wrap items-end justify-between gap-6">
+                <div>
+                  <p className="eyebrow">Proposte</p>
+                  <h2 className="display-lg mt-5">Immobili in evidenza</h2>
                 </div>
-                <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">
-                  {item.body}
-                </p>
-              </Reveal>
-            ))}
+                <Link href="/immobili" className="btn-link">
+                  Vedi tutti
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </Reveal>
+            {featuredProperties.length > 0 ? (
+              <div className="mt-14 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-3">
+                {featuredProperties.map((property, index) => (
+                  <Reveal key={property._id} delay={index * 120}>
+                    <PropertyCard
+                      title={property.title}
+                      location={property.location}
+                      price={formatPrice(property.price, property.priceUnit)}
+                      tag={statusLabel(property.status)}
+                      imageUrl={
+                        property.images?.[0]
+                          ? urlFor(property.images[0]).width(800).height(600).url()
+                          : undefined
+                      }
+                      href={property.slug?.current ? `/immobili/${property.slug.current}` : undefined}
+                    />
+                  </Reveal>
+                ))}
+              </div>
+            ) : (
+              <p className="mt-12 text-sm text-muted">
+                Nessun immobile in evidenza al momento — torna a trovarci presto.
+              </p>
+            )}
           </div>
         </section>
 
-        <section id="recensioni">
-          <div className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-24">
+        <PhotoBand src="/sfondi/casa-giardino.jpg" position="50% 82%" desktopPosition="50% 72%" />
+
+        <section id="metodo" className="scroll-mt-24">
+          <div className="mx-auto max-w-[1800px] px-6 py-24 sm:px-10 md:py-32 lg:px-16">
             <Reveal>
-              <div className="flex items-end justify-between gap-4">
-                <h2 className="text-3xl font-semibold text-balance font-display">
-                  Cosa dicono di me
-                </h2>
-                <Link href="/recensioni" className="text-sm font-semibold text-accent">
-                  Vedi tutte →
+              <p className="eyebrow">Il mio metodo</p>
+              <h2 className="display-lg mt-5 max-w-3xl">
+                I tuoi desideri, il mio punto di partenza.
+              </h2>
+            </Reveal>
+            <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
+              {process.map((item, index) => (
+                <Reveal key={item.title} delay={index * 120}>
+                  <div className="card-soft h-full p-8 transition duration-500 hover:-translate-y-1.5 md:p-10">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-surface-2 text-accent">
+                      {item.icon}
+                    </div>
+                    <h3 className="mt-8 text-xl font-medium tracking-[-0.02em] md:text-2xl">
+                      {item.title}
+                    </h3>
+                    <p className="mt-4 text-[1.1042rem] leading-7 text-muted">{item.body}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <PhotoBand src="/sfondi/open-space-divano-verde.jpg" position="50% 55%" />
+
+        <section id="recensioni" className="scroll-mt-24">
+          <div className="mx-auto max-w-[1800px] px-6 py-24 sm:px-10 md:py-32 lg:px-16">
+            <Reveal>
+              <div className="flex flex-wrap items-end justify-between gap-6">
+                <div>
+                  <p className="eyebrow">Recensioni</p>
+                  <h2 className="display-lg mt-5">Cosa dicono di me</h2>
+                </div>
+                <Link href="/recensioni" className="btn-link">
+                  Vedi tutte
+                  <span aria-hidden="true">→</span>
                 </Link>
               </div>
             </Reveal>
             {featuredReviews.length > 0 ? (
-              <div className="mt-12">
+              <div className="mt-14">
                 <ReviewsCarousel reviews={featuredReviews} />
               </div>
             ) : (
@@ -265,25 +278,31 @@ export default async function Home() {
           </div>
         </section>
 
-        <section className="relative mx-auto max-w-[1800px] overflow-hidden px-6 sm:px-10 lg:px-16 py-24 text-center">
-          <Parallax
-            speed={0.18}
-            className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 -translate-y-1/3 rounded-full border border-accent/20"
-          />
-          <Reveal className="relative">
-            <h2 className="mx-auto max-w-xl text-3xl font-semibold text-balance font-display">
-              Ne parliamo?
-            </h2>
-            <p className="mx-auto mt-4 max-w-md text-muted">
-              Che tu stia cercando di vendere o di acquistare casa, inizia il
-              tuo percorso con me.
-            </p>
-            <BookConsultationButton
-              label="Contattami ora"
-              className="mt-8 inline-block rounded-sm bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:opacity-90"
-            />
-            <SocialLinks className="mt-6 justify-center" />
-          </Reveal>
+        <section className="bg-foreground text-background">
+          <div className="grid md:grid-cols-2">
+            <div className="order-2 flex flex-col justify-center px-6 py-16 sm:px-10 md:order-1 md:py-24 lg:px-16">
+              <p className="eyebrow text-background/60">Contatti</p>
+              <h2 className="display-lg mt-5">Ne parliamo?</h2>
+              <p className="mt-6 max-w-md text-lg leading-8 text-background/70">
+                Che tu stia cercando di vendere o di acquistare casa, inizia il
+                tuo percorso con me.
+              </p>
+              <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
+                <BookConsultationButton label="Contattami ora" className="btn-primary" />
+                <SocialLinks tone="light" />
+              </div>
+            </div>
+            <div className="relative order-1 min-h-[440px] md:order-2 md:min-h-[620px]">
+              <Image
+                src="/valentina-contatti.jpg"
+                alt="Valentina Vulcano"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+                style={{ objectPosition: "50% 24%" }}
+              />
+            </div>
+          </div>
         </section>
       </main>
       <SiteFooter />

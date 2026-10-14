@@ -30,10 +30,10 @@ export function ReviewsCarousel({ reviews }: { reviews: SanityReview[] }) {
     <div className="relative">
       <div
         ref={scrollerRef}
-        className="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto pb-2"
+        className="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto px-1 pb-10 pt-1"
       >
         {reviews.map((review) => (
-          <div key={review._id} className="w-80 flex-none snap-start">
+          <div key={review._id} className="w-[19rem] flex-none snap-start md:w-96">
             <ReviewCard review={review} />
           </div>
         ))}
@@ -45,7 +45,7 @@ export function ReviewsCarousel({ reviews }: { reviews: SanityReview[] }) {
             type="button"
             onClick={() => scroll(-1)}
             aria-label="Recensioni precedenti"
-            className="absolute -left-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/70 text-foreground opacity-40 backdrop-blur transition hover:opacity-100 md:flex"
+            className="absolute -left-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/80 text-foreground shadow-md backdrop-blur transition hover:border-accent hover:text-accent md:flex"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
@@ -55,7 +55,7 @@ export function ReviewsCarousel({ reviews }: { reviews: SanityReview[] }) {
             type="button"
             onClick={() => scroll(1)}
             aria-label="Recensioni successive"
-            className="absolute -right-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/70 text-foreground opacity-40 backdrop-blur transition hover:opacity-100 md:flex"
+            className="absolute -right-4 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/80 text-foreground shadow-md backdrop-blur transition hover:border-accent hover:text-accent md:flex"
           >
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />

@@ -6,36 +6,45 @@ import { SocialLinks } from "@/components/social-links";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-[1800px] flex-col gap-8 px-6 sm:px-10 lg:px-16 py-12 md:flex-row md:items-start md:justify-between">
-        <div className="items-start text-left">
+    <footer className="bg-background">
+      <div className="mx-auto grid max-w-[1800px] gap-12 px-6 py-16 sm:px-10 md:grid-cols-[1.2fr_1fr_1fr] md:py-20 lg:px-16">
+        <div>
           <Logo className="items-start" />
-          <p className="mt-3 max-w-xs text-sm text-muted">
-            Agente immobiliare. Vendita, acquisto e valorizzazione di case.
-          </p>
+          <p className="mt-4 text-sm text-muted">Agente immobiliare</p>
         </div>
-        <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
+
+        <nav className="flex flex-col gap-3 text-sm">
+          <p className="text-[0.8542rem] font-semibold uppercase tracking-[0.2em] text-muted">
+            Esplora
+          </p>
           {NAV_ITEMS.map((item) => (
-            <Link key={item.href} href={item.href} className="hover:text-foreground">
+            <Link key={item.href} href={item.href} className="w-fit font-medium transition hover:text-accent">
               {item.label}
             </Link>
           ))}
         </nav>
-        <div className="text-sm text-muted">
-          <p>{siteConfig.email}</p>
-          <p>{siteConfig.phone}</p>
-          <p>Rea {siteConfig.rea}</p>
-          <SocialLinks className="mt-4" />
+
+        <div className="flex flex-col gap-3 text-sm">
+          <p className="text-[0.8542rem] font-semibold uppercase tracking-[0.2em] text-muted">
+            Contatti
+          </p>
+          <p className="font-medium">{siteConfig.email}</p>
+          <p className="font-medium">{siteConfig.phone}</p>
+          <p className="text-muted">Rea {siteConfig.rea}</p>
+          <SocialLinks className="mt-3" />
         </div>
       </div>
-      <div className="flex flex-col items-center gap-2 border-t border-border px-6 py-4 text-center text-xs text-muted sm:flex-row sm:justify-between">
-        <p>
-          © {new Date().getFullYear()} {siteConfig.name}. Tutti i diritti
-          riservati.
-        </p>
-        <Link href="/privacy" className="hover:text-foreground">
-          Privacy e Cookie Policy
-        </Link>
+
+      <div className="border-t border-border">
+        <div className="mx-auto flex max-w-[1800px] flex-col items-start gap-2 px-6 py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-16">
+          <p>
+            © {new Date().getFullYear()} {siteConfig.name}. Tutti i diritti
+            riservati.
+          </p>
+          <Link href="/privacy" className="transition hover:text-foreground">
+            Privacy e Cookie Policy
+          </Link>
+        </div>
       </div>
     </footer>
   );

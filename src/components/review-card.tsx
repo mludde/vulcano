@@ -12,12 +12,12 @@ function initials(name: string) {
 
 export function ReviewCard({ review }: { review: SanityReview }) {
   return (
-    <div className="min-w-0 rounded-sm border border-border bg-background p-6">
+    <div className="card-soft flex h-full min-w-0 flex-col p-7 md:p-8">
       <StarRating rating={review.rating} />
-      <p className="mt-4 break-words text-sm leading-relaxed text-foreground">
+      <p className="mt-5 flex-1 break-words text-[1.1042rem] leading-7 text-foreground">
         “{review.text}”
       </p>
-      <div className="mt-6 flex items-center gap-3">
+      <div className="mt-8 flex items-center gap-3">
         {review.authorPhoto ? (
           <Image
             src={urlFor(review.authorPhoto).width(80).height(80).url()}
@@ -27,7 +27,7 @@ export function ReviewCard({ review }: { review: SanityReview }) {
             className="h-10 w-10 rounded-full object-cover"
           />
         ) : (
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-2 font-display text-sm font-semibold">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-2 text-sm font-semibold text-accent">
             {initials(review.authorName)}
           </div>
         )}

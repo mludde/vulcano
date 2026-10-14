@@ -36,21 +36,20 @@ export default async function ImmobiliPage() {
       <SiteHeader />
       <main className="flex-1">
         <section>
-          <Reveal className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-20">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-              Immobili
-            </p>
-            <h1 className="mt-4 max-w-xl text-4xl font-semibold leading-tight text-balance md:text-5xl font-display">
+          <Reveal className="mx-auto max-w-[1800px] px-6 pb-8 pt-20 sm:px-10 md:pt-28 lg:px-16">
+            <p className="eyebrow">Immobili</p>
+            <h1 className="display-xl mt-7">
               Proposte immobiliari
             </h1>
-            <p className="mt-4 max-w-lg text-muted">
+            <p className="mt-7 max-w-lg text-lg leading-8 text-muted">
               Una selezione di case in vendita e in affitto, valutate e
               seguite direttamente da me.
             </p>
           </Reveal>
         </section>
 
-        <section className="mx-auto max-w-[1800px] px-6 sm:px-10 lg:px-16 py-16">
+
+        <section className="mx-auto max-w-[1800px] px-6 pb-28 pt-12 sm:px-10 lg:px-16">
           {withImages.length > 0 ? (
             <PropertyListing properties={withImages} />
           ) : (

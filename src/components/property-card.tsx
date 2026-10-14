@@ -12,25 +12,27 @@ export type Property = {
 
 export function PropertyCard({ title, location, price, tag, imageUrl, href }: Property) {
   const card = (
-    <div className="group overflow-hidden rounded-sm border border-border">
-      <div className="relative aspect-[4/3] overflow-hidden bg-surface-2">
+    <div className="group">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] bg-surface-2 shadow-[0_24px_50px_-30px_rgba(30,43,41,0.5)]">
         {imageUrl && (
           <Image
             src={imageUrl}
             alt={title}
             fill
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+            className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]"
           />
         )}
-      </div>
-      <div className="p-5">
-        <span className="text-xs font-semibold uppercase tracking-wide text-accent">
+        <span className="absolute left-4 top-4 rounded-full bg-background/90 px-3.5 py-1.5 text-[0.8542rem] font-semibold uppercase tracking-[0.16em] text-foreground backdrop-blur">
           {tag}
         </span>
-        <h3 className="mt-2 font-semibold">{title}</h3>
-        <p className="text-sm text-muted">{location}</p>
-        <p className="mt-3 font-display text-lg font-semibold">{price}</p>
+      </div>
+      <div className="px-1 pt-5">
+        <div className="flex items-baseline justify-between gap-4">
+          <h3 className="text-lg font-medium tracking-[-0.015em]">{title}</h3>
+          <p className="shrink-0 text-lg font-medium tabular-nums">{price}</p>
+        </div>
+        <p className="mt-1 text-sm text-muted">{location}</p>
       </div>
     </div>
   );

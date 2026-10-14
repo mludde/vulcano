@@ -1,10 +1,21 @@
 import { siteConfig } from "@/lib/site-config";
 
-const linkClass =
-  "flex h-11 w-11 items-center justify-center rounded-full border border-border text-accent transition hover:border-accent hover:bg-surface-2";
+const tones = {
+  default:
+    "flex h-11 w-11 items-center justify-center rounded-full border border-border text-accent transition hover:border-accent hover:bg-surface-2",
+  light:
+    "flex h-11 w-11 items-center justify-center rounded-full border border-background/25 text-background transition hover:border-background hover:bg-background/10",
+};
 
-export function SocialLinks({ className = "" }: { className?: string }) {
+export function SocialLinks({
+  className = "",
+  tone = "default",
+}: {
+  className?: string;
+  tone?: keyof typeof tones;
+}) {
   if (!siteConfig.whatsappUrl && !siteConfig.instagramUrl) return null;
+  const linkClass = tones[tone];
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
