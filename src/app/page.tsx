@@ -279,28 +279,16 @@ export default async function Home() {
         </section>
 
         <section className="bg-foreground text-background">
-          <div className="grid md:grid-cols-[1fr_minmax(0,30rem)]">
-            <div className="order-2 flex flex-col justify-center px-6 py-16 sm:px-10 md:order-1 md:py-24 lg:px-16">
-              <p className="eyebrow text-background/60">Contatti</p>
-              <h2 className="display-lg mt-5">Iniziamo un progetto insieme</h2>
-              <p className="mt-6 max-w-md text-lg leading-8 text-background/70">
-                Che tu stia cercando di vendere o di acquistare casa, inizia il
-                tuo percorso con me.
-              </p>
-              <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
-                <BookConsultationButton label="Contattami ora" className="btn-primary" />
-                <SocialLinks tone="light" />
-              </div>
-            </div>
-            <div className="order-1 md:order-2">
-              <Image
-                src="/valentina-contatti-giacca.jpg"
-                alt="Valentina Vulcano"
-                width={853}
-                height={1280}
-                sizes="(min-width: 768px) 480px, 100vw"
-                className="block h-auto w-full"
-              />
+          <div className="mx-auto max-w-[1800px] px-6 py-20 sm:px-10 md:py-28 lg:px-16">
+            <p className="eyebrow text-background/60">Contatti</p>
+            <h2 className="display-lg mt-5 max-w-3xl">Iniziamo un progetto insieme</h2>
+            <p className="mt-6 max-w-md text-lg leading-8 text-background/70">
+              Che tu stia cercando di vendere o di acquistare casa, inizia il
+              tuo percorso con me.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
+              <BookConsultationButton label="Contattami ora" className="btn-primary" />
+              <SocialLinks tone="light" />
             </div>
           </div>
         </section>
