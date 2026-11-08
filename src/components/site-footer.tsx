@@ -18,7 +18,7 @@ export function SiteFooter() {
             Esplora
           </p>
           {NAV_ITEMS.map((item) => (
-            <Link key={item.href} href={item.href} className="w-fit font-medium transition hover:text-accent">
+            <Link key={item.href} href={item.href} className="w-fit font-medium underline decoration-transparent decoration-2 underline-offset-4 transition hover:decoration-accent">
               {item.label}
             </Link>
           ))}

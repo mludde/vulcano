@@ -1,11 +1,11 @@
 import { ImageResponse } from "next/og";
-import { loadKaushanScript } from "@/lib/og-font";
+import { loadScriptFont } from "@/lib/og-font";
 
 export const size = { width: 32, height: 32 };
 export const contentType = "image/png";
 
 export default async function Icon() {
-  const kaushanScript = await loadKaushanScript();
+  const scriptFont = await loadScriptFont();
 
   return new ImageResponse(
     (
@@ -17,9 +17,9 @@ export default async function Icon() {
           alignItems: "center",
           justifyContent: "center",
           backgroundColor: "#1e2b29",
-          color: "#2dd4c7",
+          color: "#efa390",
           fontSize: 26,
-          fontFamily: "Kaushan Script",
+          fontFamily: "Sacramento",
         }}
       >
         V
@@ -27,7 +27,7 @@ export default async function Icon() {
     ),
     {
       ...size,
-      fonts: [{ name: "Kaushan Script", data: kaushanScript, style: "normal", weight: 400 }],
+      fonts: [{ name: "Sacramento", data: scriptFont, style: "normal", weight: 400 }],
     },
   );
 }

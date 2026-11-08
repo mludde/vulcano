@@ -1,41 +1,43 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
-import { siteConfig } from "@/lib/site-config";
+import { checkBot, clean } from "@/lib/bot-check";
+import { MAIL_FROM, mailRecipient, resend } from "@/lib/mail";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-// Until a verified sending domain is set up in Resend, mail must be sent
-// from this shared testing address (any real "from" address will be
-// rejected by Resend for an unverified domain).
-const FROM = "Valentina Vulcano <onboarding@resend.dev>";
+const LIMITS = { name: 120, email: 200, phone: 40, subject: 200, message: 5000 };
 
 export async function POST(request: Request) {
-  const body = await request.json();
-  const { name, email, phone, subject, message } = body as Record<string, string>;
+  let body: Record<string, unknown>;
+  try {
+    body = (await request.json()) as Record<string, unknown>;
+  } catch {
+    return NextResponse.json({ ok: false, error: "Richiesta non valida." }, { status: 400 });
+  }
 
-  if (!name || !email || !message) {
+  const verdict = await checkBot(body, request);
+  if (!verdict.pass) {
+    return verdict.silent
+      ? NextResponse.json({ ok: true })
+      : NextResponse.json({ ok: false, error: verdict.error }, { status: verdict.status });
+  }
+
+  const name = clean(body.name, LIMITS.name);
+  const email = clean(body.email, LIMITS.email);
+  const phone = clean(body.phone, LIMITS.phone);
+  const subject = clean(body.subject, LIMITS.subject).replace(/[\r\n]+/g, " ");
+  const message = clean(body.message, LIMITS.message);
+
+  if (!name || !email || !phone || !message) {
     return NextResponse.json(
-      { ok: false, error: "Nome, email e messaggio sono obbligatori." },
+      { ok: false, error: "Nome, email, telefono e messaggio sono obbligatori." },
       { status: 400 },
     );
   }
 
-  const to = process.env.CONTACT_EMAIL_TO || siteConfig.email;
-
   const { error } = await resend.emails.send({
-    from: FROM,
-    to,
+    from: MAIL_FROM,
+    to: mailRecipient(),
     replyTo: email,
-    subject: subject?.trim() || `Richiesta dal sito da ${name}`,
-    text: [
-      `Nome: ${name}`,
-      `Email: ${email}`,
-      phone ? `Telefono: ${phone}` : null,
-      "",
-      message,
-    ]
-      .filter(Boolean)
-      .join("\n"),
+    subject: subject || `Richiesta dal sito da ${name}`,
+    text: [`Nome: ${name}`, `Email: ${email}`, `Telefono: ${phone}`, "", message].join("\n"),
   });
 
   if (error) {

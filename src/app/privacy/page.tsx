@@ -20,7 +20,7 @@ export default function PrivacyPage() {
       <main className="flex-1">
         <section className="border-b border-border">
           <div className="mx-auto max-w-3xl px-6 py-20">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
               Informativa
             </p>
             <h1 className="mt-4 text-4xl font-semibold leading-tight text-balance md:text-5xl font-display">
@@ -54,9 +54,15 @@ export default function PrivacyPage() {
               <ul className="mt-3">
                 <li>Nome e cognome</li>
                 <li>Indirizzo email</li>
-                <li>Numero di telefono (facoltativo)</li>
+                <li>Numero di telefono</li>
                 <li>Il contenuto del messaggio che invii</li>
               </ul>
+              <p className="mt-3">
+                Se invii una recensione dalla pagina <em>Dicono di me</em>,
+                raccolgo anche il nome che indichi, la valutazione e il testo
+                della recensione. Restano in bozza, visibili solo a me, fino a
+                quando decido di pubblicarli sul sito.
+              </p>
               <p className="mt-3">
                 Il sito non utilizza account utente, non richiede
                 registrazione e non raccoglie dati tramite cookie di
@@ -85,7 +91,7 @@ export default function PrivacyPage() {
                   href="https://resend.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-accent"
+                  className="text-foreground underline decoration-accent decoration-2 underline-offset-4"
                 >
                   Resend
                 </a>{" "}
@@ -96,12 +102,32 @@ export default function PrivacyPage() {
                 conservazione della sua normale corrispondenza.
               </p>
               <p className="mt-3">
+                Per proteggere il modulo da messaggi automatici (spam) utilizzo
+                il servizio di verifica{" "}
+                <a
+                  href="https://www.cloudflare.com/products/turnstile/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-foreground underline decoration-accent decoration-2 underline-offset-4"
+                >
+                  Cloudflare Turnstile
+                </a>
+                , che analizza in modo tecnico il browser al momento dell&apos;invio
+                per distinguere una persona da un software. Non viene mostrato
+                alcun banner e non vengono usati cookie di profilazione.
+              </p>
+              <p className="mt-3">
+                Nelle pagine degli immobili la mappa di Google Maps viene
+                caricata <strong>solo se premi «Mostra mappa»</strong>: finché
+                non lo fai, nessun dato viene condiviso con Google.
+              </p>
+              <p className="mt-3">
                 Il sito è ospitato su infrastruttura{" "}
                 <a
                   href="https://vercel.com"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-accent"
+                  className="text-foreground underline decoration-accent decoration-2 underline-offset-4"
                 >
                   Vercel
                 </a>{" "}
@@ -110,7 +136,7 @@ export default function PrivacyPage() {
                   href="https://www.sanity.io"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-accent"
+                  className="text-foreground underline decoration-accent decoration-2 underline-offset-4"
                 >
                   Sanity
                 </a>

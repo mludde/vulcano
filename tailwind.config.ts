@@ -14,6 +14,7 @@ const config: Config = {
         accent: "rgb(var(--accent-rgb) / <alpha-value>)",
         "accent-foreground": "rgb(var(--accent-foreground-rgb) / <alpha-value>)",
         "accent-warm": "rgb(var(--accent-warm-rgb) / <alpha-value>)",
+        pink: "rgb(var(--pink-rgb) / <alpha-value>)",
       },
       fontSize: {
         xs: ["0.9167rem", { lineHeight: "1.3333rem" }],

@@ -17,7 +17,10 @@ export const featuredReviewsQuery = groq`
 `;
 
 export const propertyBySlugQuery = groq`
-  *[_type == "property" && slug.current == $slug][0]
+  *[_type == "property" && slug.current == $slug][0]{
+    ...,
+    "floorPlans": floorPlans[defined(file.asset)]{ title, "url": file.asset->url }
+  }
 `;
 
 export const propertySlugsQuery = groq`

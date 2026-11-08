@@ -154,9 +154,9 @@ export default async function Home() {
             </Reveal>
             <Reveal delay={150} className="relative mx-auto w-full max-w-sm md:justify-self-end">
               <div className="absolute -bottom-5 -left-5 h-3/4 w-3/4 rounded-[28px] bg-surface-2" />
-              <div className="relative aspect-[4/5] overflow-hidden rounded-b-[28px] rounded-t-[999px] bg-surface-2 shadow-[0_40px_80px_-40px_rgba(30,43,41,0.5)]">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[36px] bg-surface-2 shadow-[0_40px_80px_-40px_rgba(239,163,144,0.6)]">
                 <Image
-                  src="/valentina-hero.jpg"
+                  src="/valentina-hero-giacca.jpg"
                   alt="Valentina Vulcano, agente immobiliare"
                   fill
                   priority
@@ -236,7 +236,7 @@ export default async function Home() {
               {process.map((item, index) => (
                 <Reveal key={item.title} delay={index * 120}>
                   <div className="card-soft h-full p-8 transition duration-500 hover:-translate-y-1.5 md:p-10">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-surface-2 text-accent">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-surface-2 text-pink">
                       {item.icon}
                     </div>
                     <h3 className="mt-8 text-xl font-medium tracking-[-0.02em] md:text-2xl">
@@ -250,7 +250,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <PhotoBand src="/sfondi/open-space-divano-verde.jpg" position="50% 55%" />
+        <PhotoBand src="/sfondi/cucina-fiori.jpg" position="50% 60%" />
 
         <section id="recensioni" className="scroll-mt-24">
           <div className="mx-auto max-w-[1800px] px-6 py-24 sm:px-10 md:py-32 lg:px-16">
@@ -282,7 +282,7 @@ export default async function Home() {
           <div className="grid md:grid-cols-2">
             <div className="order-2 flex flex-col justify-center px-6 py-16 sm:px-10 md:order-1 md:py-24 lg:px-16">
               <p className="eyebrow text-background/60">Contatti</p>
-              <h2 className="display-lg mt-5">Ne parliamo?</h2>
+              <h2 className="display-lg mt-5">Iniziamo un progetto insieme</h2>
               <p className="mt-6 max-w-md text-lg leading-8 text-background/70">
                 Che tu stia cercando di vendere o di acquistare casa, inizia il
                 tuo percorso con me.

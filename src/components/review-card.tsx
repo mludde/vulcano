@@ -27,7 +27,7 @@ export function ReviewCard({ review }: { review: SanityReview }) {
             className="h-10 w-10 rounded-full object-cover"
           />
         ) : (
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-2 text-sm font-semibold text-accent">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-2 text-sm font-semibold text-foreground">
             {initials(review.authorName)}
           </div>
         )}

@@ -8,8 +8,8 @@ async function loadLocalFont(fileName: string): Promise<ArrayBuffer> {
   return buffer.buffer.slice(buffer.byteOffset, buffer.byteOffset + buffer.byteLength) as ArrayBuffer;
 }
 
-export function loadKaushanScript(): Promise<ArrayBuffer> {
-  return loadLocalFont("KaushanScript-Regular.ttf");
+export function loadScriptFont(): Promise<ArrayBuffer> {
+  return loadLocalFont("Sacramento-Regular.ttf");
 }
 
 export function loadArimoBold(): Promise<ArrayBuffer> {

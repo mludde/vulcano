@@ -58,7 +58,7 @@ export default async function ChiSonoPage({ searchParams }: Props) {
               className="relative order-1 mx-auto w-full max-w-sm md:order-2 md:justify-self-end"
             >
               <div className="absolute -bottom-5 -right-5 h-3/4 w-3/4 rounded-[28px] bg-surface-2" />
-              <div className="relative aspect-[3/4] overflow-hidden rounded-b-[28px] rounded-t-[999px] bg-surface-2 shadow-[0_40px_80px_-40px_rgba(30,43,41,0.5)]">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[36px] bg-surface-2 shadow-[0_40px_80px_-40px_rgba(239,163,144,0.6)]">
                 <Image
                   src="/valentina-vestito-giallo.jpg"
                   alt="Valentina Vulcano, agente immobiliare"
@@ -73,12 +73,12 @@ export default async function ChiSonoPage({ searchParams }: Props) {
           </div>
         </section>
 
-        <PhotoBand src="/sfondi/cucina-fiori.jpg" position="50% 50%" />
+        <PhotoBand src="/sfondi/open-space-divano-verde.jpg" position="50% 55%" />
 
         <section id="contatti" className="scroll-mt-24">
           <div className="mx-auto max-w-[1800px] px-6 py-24 sm:px-10 md:py-32 lg:px-16">
             <p className="eyebrow">Contatti</p>
-            <h2 className="display-lg mt-5">Ne parliamo?</h2>
+            <h2 className="display-lg mt-5">Iniziamo un progetto insieme</h2>
             <p className="mt-5 max-w-lg text-lg leading-8 text-muted">
               Che tu stia cercando di vendere, comprare o affittare casa,
               scrivimi.

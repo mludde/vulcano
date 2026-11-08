@@ -54,7 +54,7 @@ export function SiteHeader() {
               key={item.href}
               href={item.href}
               onClick={() => setMenuOpen(false)}
-              className="block border-b border-border py-4 text-lg font-medium tracking-[-0.01em] hover:text-accent"
+              className="block border-b border-border py-4 text-lg font-medium tracking-[-0.01em] underline decoration-transparent decoration-2 underline-offset-8 hover:decoration-accent"
             >
               {item.label}
             </Link>

@@ -17,7 +17,7 @@ export function Logo({ className = "" }: { className?: string }) {
           strokeLinejoin="round"
         />
       </svg>
-      <span className="whitespace-nowrap font-script text-xl leading-none sm:text-2xl md:text-3xl">
+      <span className="whitespace-nowrap font-script text-2xl leading-none sm:text-3xl md:text-4xl">
         {siteConfig.logoName}
       </span>
     </span>

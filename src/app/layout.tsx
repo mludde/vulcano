@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Kaushan_Script } from "next/font/google";
+import { Sacramento } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/json-ld";
 import { siteConfig } from "@/lib/site-config";
 
-const kaushanScript = Kaushan_Script({
+const scriptFont = Sacramento({
   variable: "--font-script",
   subsets: ["latin"],
   weight: ["400"],
@@ -61,7 +61,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="it"
-      className={`${kaushanScript.variable} h-full antialiased`}
+      className={`${scriptFont.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <JsonLd data={realEstateAgentJsonLd} />

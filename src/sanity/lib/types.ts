@@ -14,6 +14,12 @@ export type SanityProperty = {
   bathrooms?: number;
   description?: string;
   images?: SanityImage[];
+  address?: string;
+  garage?: boolean;
+  balcony?: boolean;
+  terrace?: boolean;
+  garden?: boolean;
+  floorPlans?: { title?: string; url: string }[];
 };
 
 export type SanityReview = {

@@ -2,9 +2,9 @@ import { siteConfig } from "@/lib/site-config";
 
 const tones = {
   default:
-    "flex h-11 w-11 items-center justify-center rounded-full border border-border text-accent transition hover:border-accent hover:bg-surface-2",
+    "flex h-11 w-11 items-center justify-center rounded-full border border-border text-pink transition hover:border-pink hover:bg-surface-2",
   light:
-    "flex h-11 w-11 items-center justify-center rounded-full border border-background/25 text-background transition hover:border-background hover:bg-background/10",
+    "flex h-11 w-11 items-center justify-center rounded-full border border-pink/40 text-pink transition hover:border-pink hover:bg-pink/10",
 };
 
 export function SocialLinks({

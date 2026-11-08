@@ -13,6 +13,7 @@ export const siteConfig = {
   phoneRaw: "+393489742939",
   whatsappUrl: "https://wa.me/393489742939",
   instagramUrl: "https://www.instagram.com/valentina.vulcano/",
+  studioUrl: "https://vulcano-immobiliare.sanity.studio",
   rea: "82508",
   address: {
     locality: "Aosta",

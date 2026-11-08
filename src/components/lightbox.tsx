@@ -87,7 +87,7 @@ export function Lightbox({
               <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
-          <div className="pointer-events-none absolute bottom-5 left-1/2 z-10 -translate-x-1/2 rounded-full bg-background px-3 py-1 text-sm font-semibold text-accent shadow-lg">
+          <div className="pointer-events-none absolute bottom-5 left-1/2 z-10 -translate-x-1/2 rounded-full bg-background px-3 py-1 text-sm font-semibold text-foreground shadow-lg">
             {index + 1} / {images.length}
           </div>
         </>

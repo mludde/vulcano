@@ -22,7 +22,7 @@ export function PropertyThumbnailGallery({
             type="button"
             onClick={() => setOpenIndex(index)}
             aria-label={`Apri foto ${index + 1} a schermo intero`}
-            className="group relative mb-3 block w-full overflow-hidden rounded-sm bg-surface-2"
+            className="group relative mb-3 block w-full overflow-hidden rounded-2xl bg-surface-2"
           >
             <Image
               src={src}

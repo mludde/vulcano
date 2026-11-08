@@ -6,24 +6,26 @@
   --background: #fbfbfa;
   --foreground: #1e2b29;
   --surface: #ffffff;
-  --surface-2: #eaf5f4;
-  --border: #dceae7;
+  --surface-2: #fbeeea;
+  --border: #f1e1dc;
   --muted: #5c726e;
-  --accent: #0ea5a0;
-  --accent-foreground: #ffffff;
+  --accent: #efa390;
+  --accent-foreground: #1e2b29;
   --accent-warm: #f2b88c;
+  --pink: #efa390;
 
   --background-rgb: 251 251 250;
   --foreground-rgb: 30 43 41;
   --surface-rgb: 255 255 255;
-  --surface-2-rgb: 234 245 244;
-  --border-rgb: 220 234 231;
+  --surface-2-rgb: 251 238 234;
+  --border-rgb: 241 225 220;
   --muted-rgb: 92 114 110;
-  --accent-rgb: 14 165 160;
-  --accent-foreground-rgb: 255 255 255;
+  --accent-rgb: 239 163 144;
+  --accent-foreground-rgb: 30 43 41;
   --accent-warm-rgb: 242 184 140;
+  --pink-rgb: 239 163 144;
 
-  --shadow-soft: 0 24px 60px -32px rgb(30 43 41 / 0.35);
+  --shadow-soft: 0 24px 60px -28px rgb(239 163 144 / 0.6);
 }
 
 body {
@@ -43,7 +45,7 @@ body {
 
   .eyebrow::before {
     content: "";
-    @apply h-1.5 w-1.5 rounded-full bg-accent-warm;
+    @apply h-1.5 w-1.5 rounded-full bg-pink;
   }
 
   .display-xl {
