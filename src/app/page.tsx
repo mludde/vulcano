@@ -169,7 +169,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <PhotoBand src="/sfondi/soggiorno-travi.jpg" position="50% 45%" />
+        <PhotoBand src="/sfondi/cucina-fiori.jpg" position="50% 60%" />
 
         <section id="servizi" className="scroll-mt-24">
           <div className="mx-auto grid max-w-[1800px] gap-10 px-6 py-24 sm:px-10 md:grid-cols-[1fr_1.7fr] md:gap-20 md:py-32 lg:px-16">
@@ -250,7 +250,7 @@ export default async function Home() {
           </div>
         </section>
 
-        <PhotoBand src="/sfondi/cucina-fiori.jpg" position="50% 60%" />
+        <PhotoBand src="/sfondi/soggiorno-travi.jpg" position="50% 45%" />
 
         <section id="recensioni" className="scroll-mt-24">
           <div className="mx-auto max-w-[1800px] px-6 py-24 sm:px-10 md:py-32 lg:px-16">

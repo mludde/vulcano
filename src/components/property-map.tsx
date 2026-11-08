@@ -40,12 +40,7 @@ export function PropertyMap({
                 <circle cx="12" cy="9.5" r="2.5" />
               </svg>
             </span>
-            <div>
-              <p className="text-xl font-medium tracking-[-0.015em]">{query}</p>
-              <p className="mt-2 max-w-md text-sm text-muted">
-                La mappa è fornita da Google Maps e si carica solo se lo richiedi.
-              </p>
-            </div>
+            <p className="text-xl font-medium tracking-[-0.015em]">{query}</p>
             <button type="button" onClick={() => setLoaded(true)} className="btn-primary">
               Mostra mappa
             </button>
