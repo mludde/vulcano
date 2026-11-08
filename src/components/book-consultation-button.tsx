@@ -44,7 +44,7 @@ export function BookConsultationButton({
             aria-label="Scegli il tipo di consulenza"
           >
             <div
-              className="w-full max-w-sm rounded-[28px] bg-surface p-9 text-center shadow-[0_40px_90px_-30px_rgba(239,163,144,0.55)]"
+              className="w-full max-w-sm rounded-[28px] bg-surface p-9 text-center shadow-[0_40px_90px_-30px_rgba(217,162,167,0.55)]"
               onClick={(event) => event.stopPropagation()}
             >
               <h2 className="text-2xl font-medium tracking-[-0.025em] text-balance">

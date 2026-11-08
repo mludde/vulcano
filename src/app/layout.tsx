@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Sacramento } from "next/font/google";
+import { Allura } from "next/font/google";
 import "./globals.css";
 import { JsonLd } from "@/components/json-ld";
 import { siteConfig } from "@/lib/site-config";
 
-const scriptFont = Sacramento({
+const scriptFont = Allura({
   variable: "--font-script",
   subsets: ["latin"],
   weight: ["400"],

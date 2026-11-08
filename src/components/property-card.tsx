@@ -13,7 +13,7 @@ export type Property = {
 export function PropertyCard({ title, location, price, tag, imageUrl, href }: Property) {
   const card = (
     <div className="group">
-      <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] bg-surface-2 shadow-[0_24px_50px_-30px_rgba(239,163,144,0.6)]">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] bg-surface-2 shadow-[0_24px_50px_-30px_rgba(217,162,167,0.6)]">
         {imageUrl && (
           <Image
             src={imageUrl}

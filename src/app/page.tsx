@@ -154,7 +154,7 @@ export default async function Home() {
             </Reveal>
             <Reveal delay={150} className="relative mx-auto w-full max-w-sm md:justify-self-end">
               <div className="absolute -bottom-5 -left-5 h-3/4 w-3/4 rounded-[28px] bg-surface-2" />
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[36px] bg-surface-2 shadow-[0_40px_80px_-40px_rgba(239,163,144,0.6)]">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[36px] bg-surface-2 shadow-[0_40px_80px_-40px_rgba(217,162,167,0.6)]">
                 <Image
                   src="/valentina-hero-giacca.jpg"
                   alt="Valentina Vulcano, agente immobiliare"
@@ -279,7 +279,7 @@ export default async function Home() {
         </section>
 
         <section className="bg-foreground text-background">
-          <div className="grid md:grid-cols-2">
+          <div className="grid md:grid-cols-[1fr_minmax(0,30rem)]">
             <div className="order-2 flex flex-col justify-center px-6 py-16 sm:px-10 md:order-1 md:py-24 lg:px-16">
               <p className="eyebrow text-background/60">Contatti</p>
               <h2 className="display-lg mt-5">Iniziamo un progetto insieme</h2>
@@ -292,14 +292,14 @@ export default async function Home() {
                 <SocialLinks tone="light" />
               </div>
             </div>
-            <div className="relative order-1 min-h-[440px] md:order-2 md:min-h-[620px]">
+            <div className="order-1 md:order-2">
               <Image
-                src="/valentina-contatti.jpg"
+                src="/valentina-contatti-giacca.jpg"
                 alt="Valentina Vulcano"
-                fill
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover"
-                style={{ objectPosition: "50% 24%" }}
+                width={853}
+                height={1280}
+                sizes="(min-width: 768px) 480px, 100vw"
+                className="block h-auto w-full"
               />
             </div>
           </div>

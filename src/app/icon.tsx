@@ -17,9 +17,9 @@ export default async function Icon() {
           alignItems: "center",
           justifyContent: "center",
           backgroundColor: "#1e2b29",
-          color: "#efa390",
+          color: "#d9a2a7",
           fontSize: 26,
-          fontFamily: "Sacramento",
+          fontFamily: "Allura",
         }}
       >
         V
@@ -27,7 +27,7 @@ export default async function Icon() {
     ),
     {
       ...size,
-      fonts: [{ name: "Sacramento", data: scriptFont, style: "normal", weight: 400 }],
+      fonts: [{ name: "Allura", data: scriptFont, style: "normal", weight: 400 }],
     },
   );
 }

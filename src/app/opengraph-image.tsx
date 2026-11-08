@@ -29,8 +29,8 @@ export default async function Image() {
         <div
           style={{
             fontSize: 68,
-            fontFamily: "Sacramento",
-            color: "#efa390",
+            fontFamily: "Allura",
+            color: "#d9a2a7",
           }}
         >
           {siteConfig.logoName}
@@ -54,7 +54,7 @@ export default async function Image() {
     {
       ...size,
       fonts: [
-        { name: "Sacramento", data: scriptFont, style: "normal", weight: 400 },
+        { name: "Allura", data: scriptFont, style: "normal", weight: 400 },
         { name: "Arimo", data: arimoBold, style: "normal", weight: 700 },
         { name: "Arimo", data: arimoRegular, style: "normal", weight: 400 },
       ],

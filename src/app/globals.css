@@ -6,26 +6,26 @@
   --background: #fbfbfa;
   --foreground: #1e2b29;
   --surface: #ffffff;
-  --surface-2: #fbeeea;
-  --border: #f1e1dc;
+  --surface-2: #f8eced;
+  --border: #eddedf;
   --muted: #5c726e;
-  --accent: #efa390;
+  --accent: #d9a2a7;
   --accent-foreground: #1e2b29;
   --accent-warm: #f2b88c;
-  --pink: #efa390;
+  --pink: #d9a2a7;
 
   --background-rgb: 251 251 250;
   --foreground-rgb: 30 43 41;
   --surface-rgb: 255 255 255;
-  --surface-2-rgb: 251 238 234;
-  --border-rgb: 241 225 220;
+  --surface-2-rgb: 248 236 237;
+  --border-rgb: 237 222 223;
   --muted-rgb: 92 114 110;
-  --accent-rgb: 239 163 144;
+  --accent-rgb: 217 162 167;
   --accent-foreground-rgb: 30 43 41;
   --accent-warm-rgb: 242 184 140;
-  --pink-rgb: 239 163 144;
+  --pink-rgb: 217 162 167;
 
-  --shadow-soft: 0 24px 60px -28px rgb(239 163 144 / 0.6);
+  --shadow-soft: 0 24px 60px -28px rgb(217 162 167 / 0.6);
 }
 
 body {

@@ -123,7 +123,7 @@ export default async function PropertyDetailPage({ params }: Params) {
           </Link>
 
           {images.length > 0 ? (
-            <div className="relative mt-8 aspect-[4/3] w-full overflow-hidden rounded-[28px] bg-surface-2 shadow-[0_40px_80px_-40px_rgba(239,163,144,0.6)] sm:aspect-auto sm:h-[34rem]">
+            <div className="relative mt-8 aspect-[4/3] w-full overflow-hidden rounded-[28px] bg-surface-2 shadow-[0_40px_80px_-40px_rgba(217,162,167,0.6)] sm:aspect-auto sm:h-[34rem]">
               <Image
                 src={urlFor(images[0]).width(1600).height(1200).url()}
                 alt={property.title}

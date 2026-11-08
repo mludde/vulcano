@@ -9,7 +9,7 @@ async function loadLocalFont(fileName: string): Promise<ArrayBuffer> {
 }
 
 export function loadScriptFont(): Promise<ArrayBuffer> {
-  return loadLocalFont("Sacramento-Regular.ttf");
+  return loadLocalFont("Allura-Regular.ttf");
 }
 
 export function loadArimoBold(): Promise<ArrayBuffer> {

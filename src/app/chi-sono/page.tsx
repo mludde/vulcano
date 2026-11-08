@@ -58,7 +58,7 @@ export default async function ChiSonoPage({ searchParams }: Props) {
               className="relative order-1 mx-auto w-full max-w-sm md:order-2 md:justify-self-end"
             >
               <div className="absolute -bottom-5 -right-5 h-3/4 w-3/4 rounded-[28px] bg-surface-2" />
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[36px] bg-surface-2 shadow-[0_40px_80px_-40px_rgba(239,163,144,0.6)]">
+              <div className="relative aspect-[3/4] overflow-hidden rounded-[36px] bg-surface-2 shadow-[0_40px_80px_-40px_rgba(217,162,167,0.6)]">
                 <Image
                   src="/valentina-vestito-giallo.jpg"
                   alt="Valentina Vulcano, agente immobiliare"
