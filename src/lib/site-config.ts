@@ -18,7 +18,7 @@ export const siteConfig = {
   // Legal details shown in the footer and privacy policy. Fill in as soon as
   // they are available: empty values are simply not rendered in the footer,
   // while the privacy policy keeps a visible "[da completare]" placeholder.
-  vatNumber: "", // P.IVA / Codice fiscale
+  vatNumber: "01263740076", // P.IVA
   streetAddress: "", // e.g. "Via Esempio 1, 11100 Aosta (AO)"
   address: {
     locality: "Aosta",

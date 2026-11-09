@@ -11,6 +11,10 @@ export function SiteFooter() {
         <div>
           <Logo className="items-start" />
           <p className="mt-4 text-sm text-muted">Agente immobiliare</p>
+          <div className="mt-1 flex flex-col gap-1 text-sm text-muted">
+            {siteConfig.vatNumber && <p>P.IVA {siteConfig.vatNumber}</p>}
+            <p>Rea {siteConfig.rea}</p>
+          </div>
         </div>
 
         <nav className="flex flex-col gap-3 text-sm">
@@ -33,10 +37,6 @@ export function SiteFooter() {
           {siteConfig.streetAddress && (
             <p className="text-muted">{siteConfig.streetAddress}</p>
           )}
-          <p className="text-muted">
-            Rea {siteConfig.rea}
-            {siteConfig.vatNumber && <> · P.IVA/C.F. {siteConfig.vatNumber}</>}
-          </p>
           <SocialLinks className="mt-3" />
         </div>
       </div>

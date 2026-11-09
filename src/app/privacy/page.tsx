@@ -39,7 +39,7 @@ export default function PrivacyPage() {
               <p className="mt-3">
                 Il titolare del trattamento dei dati raccolti tramite questo
                 sito è <strong>{siteConfig.name}</strong>, Rea {siteConfig.rea},
-                P.IVA/C.F. {siteConfig.vatNumber || "[da completare]"}
+                P.IVA {siteConfig.vatNumber || "[da completare]"}
                 {siteConfig.streetAddress ? `, con sede in ${siteConfig.streetAddress}` : ""},
                 contattabile all&apos;indirizzo email {siteConfig.email}.
               </p>
