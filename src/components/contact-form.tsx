@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import Link from "next/link";
 import { useTurnstile } from "@/lib/use-turnstile";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -162,6 +163,18 @@ export function ContactForm({
       </div>
 
       <div ref={turnstile.boxRef} className="empty:hidden" />
+
+      <p className="text-sm leading-6 text-muted">
+        Inviando la richiesta confermi di aver letto l&apos;
+        <Link
+          href="/privacy"
+          target="_blank"
+          className="text-foreground underline decoration-accent decoration-2 underline-offset-4"
+        >
+          informativa privacy
+        </Link>
+        . Userò i tuoi dati solo per rispondere alla tua richiesta.
+      </p>
 
       {status === "error" && (
         <p className="text-sm text-[#b3472f]">{errorMessage}</p>

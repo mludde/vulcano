@@ -30,7 +30,13 @@ export function SiteFooter() {
           </p>
           <p className="font-medium">{siteConfig.email}</p>
           <p className="font-medium">{siteConfig.phone}</p>
-          <p className="text-muted">Rea {siteConfig.rea}</p>
+          {siteConfig.streetAddress && (
+            <p className="text-muted">{siteConfig.streetAddress}</p>
+          )}
+          <p className="text-muted">
+            Rea {siteConfig.rea}
+            {siteConfig.vatNumber && <> · P.IVA/C.F. {siteConfig.vatNumber}</>}
+          </p>
           <SocialLinks className="mt-3" />
         </div>
       </div>

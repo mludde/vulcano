@@ -41,6 +41,8 @@ export async function POST(request: Request) {
   });
 
   if (error) {
+    // Visible in the Vercel function logs (e.g. unverified sending domain).
+    console.error("Resend could not send the contact email:", error);
     return NextResponse.json(
       { ok: false, error: "Invio non riuscito. Riprova più tardi." },
       { status: 502 },

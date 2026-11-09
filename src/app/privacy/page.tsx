@@ -27,7 +27,7 @@ export default function PrivacyPage() {
               Privacy e Cookie Policy
             </h1>
             <p className="mt-4 text-sm text-muted">
-              Ultimo aggiornamento: 21 agosto 2026
+              Ultimo aggiornamento: 9 novembre 2026
             </p>
           </div>
         </section>
@@ -39,17 +39,18 @@ export default function PrivacyPage() {
               <p className="mt-3">
                 Il titolare del trattamento dei dati raccolti tramite questo
                 sito è <strong>{siteConfig.name}</strong>, Rea {siteConfig.rea},
-                P.IVA/C.F. [da completare], contattabile all&apos;indirizzo
-                email {siteConfig.email}.
+                P.IVA/C.F. {siteConfig.vatNumber || "[da completare]"}
+                {siteConfig.streetAddress ? `, con sede in ${siteConfig.streetAddress}` : ""},
+                contattabile all&apos;indirizzo email {siteConfig.email}.
               </p>
             </div>
 
             <div>
               <h2>Quali dati raccolgo</h2>
               <p className="mt-3">
-                Raccolgo dati personali esclusivamente quando compili
-                volontariamente il modulo di contatto presente nella pagina{" "}
-                <em>Chi sono</em>:
+                Raccolgo dati personali quando compili volontariamente il
+                modulo di contatto, presente nella pagina <em>Chi sono</em> e
+                nelle pagine dei singoli immobili:
               </p>
               <ul className="mt-3">
                 <li>Nome e cognome</li>
@@ -58,10 +59,17 @@ export default function PrivacyPage() {
                 <li>Il contenuto del messaggio che invii</li>
               </ul>
               <p className="mt-3">
-                Se invii una recensione dalla pagina <em>Dicono di me</em>,
-                raccolgo anche il nome che indichi, la valutazione e il testo
-                della recensione. Restano in bozza, visibili solo a me, fino a
+                Se invii una recensione dalla pagina <em>Recensioni</em>,
+                raccolgo il nome che indichi, la valutazione e il testo della
+                recensione. Restano in bozza, visibili solo a me, fino a
                 quando decido di pubblicarli sul sito.
+              </p>
+              <p className="mt-3">
+                Come accade con ogni sito, il server che ospita le pagine
+                registra automaticamente alcuni dati tecnici di navigazione
+                (ad esempio indirizzo IP, data e ora della richiesta, pagina
+                visitata, tipo di browser), necessari al funzionamento e alla
+                sicurezza del servizio.
               </p>
               <p className="mt-3">
                 Il sito non utilizza account utente, non richiede
@@ -79,6 +87,25 @@ export default function PrivacyPage() {
                 base giuridica è l&apos;esecuzione di misure precontrattuali
                 richieste da te (art. 6.1.b GDPR) e, dove applicabile, il tuo
                 consenso esplicito (art. 6.1.a GDPR).
+              </p>
+              <p className="mt-3">
+                Nome, valutazione e testo delle recensioni sono utilizzati
+                esclusivamente per pubblicare la recensione sul sito dopo la
+                mia lettura. La base giuridica è il tuo consenso (art. 6.1.a
+                GDPR), che esprimi spuntando l&apos;apposita casella nel
+                modulo e che puoi revocare in qualsiasi momento chiedendo la
+                rimozione della recensione, senza effetti sul trattamento
+                precedente.
+              </p>
+              <p className="mt-3">
+                I dati tecnici di navigazione sono trattati per garantire il
+                funzionamento e la sicurezza del sito, sulla base del
+                legittimo interesse del titolare (art. 6.1.f GDPR).
+              </p>
+              <p className="mt-3">
+                Il conferimento dei dati richiesti nei moduli è facoltativo,
+                ma senza di essi non posso rispondere alla tua richiesta o
+                pubblicare la tua recensione.
               </p>
             </div>
 
@@ -113,13 +140,16 @@ export default function PrivacyPage() {
                   Cloudflare Turnstile
                 </a>
                 , che analizza in modo tecnico il browser al momento dell&apos;invio
-                per distinguere una persona da un software. Non viene mostrato
-                alcun banner e non vengono usati cookie di profilazione.
+                per distinguere una persona da un software. A questo scopo
+                Cloudflare riceve dati tecnici del tuo dispositivo, tra cui
+                l&apos;indirizzo IP. Non vengono usati cookie di profilazione.
               </p>
               <p className="mt-3">
                 Nelle pagine degli immobili la mappa di Google Maps viene
                 caricata <strong>solo se premi «Mostra mappa»</strong>: finché
-                non lo fai, nessun dato viene condiviso con Google.
+                non lo fai, nessun dato viene condiviso con Google. Dopo il
+                tuo clic Google tratta i dati secondo la propria informativa
+                e può impostare propri cookie.
               </p>
               <p className="mt-3">
                 Il sito è ospitato su infrastruttura{" "}
@@ -141,10 +171,18 @@ export default function PrivacyPage() {
                   Sanity
                 </a>
                 . Questi fornitori agiscono come responsabili del trattamento
-                per gli aspetti tecnici di hosting e invio email, e possono
+                per gli aspetti tecnici di hosting, archiviazione delle
+                recensioni, invio email e verifica antispam, e possono
                 trattare dati su infrastrutture situate anche fuori
-                dall&apos;Unione Europea, con garanzie adeguate previste dai
-                rispettivi fornitori (clausole contrattuali standard).
+                dall&apos;Unione Europea (in particolare negli Stati Uniti),
+                con garanzie adeguate previste dai rispettivi fornitori
+                (clausole contrattuali standard ed EU-US Data Privacy
+                Framework, ove applicabile).
+              </p>
+              <p className="mt-3">
+                I dati non vengono venduti né ceduti a terzi per finalità di
+                marketing e non sono oggetto di processi decisionali
+                automatizzati o di profilazione.
               </p>
             </div>
 
@@ -155,6 +193,14 @@ export default function PrivacyPage() {
                 per il tempo necessario a gestire la tua richiesta, salvo
                 obblighi di legge diversi o un rapporto contrattuale
                 successivo tra le parti.
+              </p>
+              <p className="mt-3">
+                Le recensioni pubblicate restano visibili sul sito finché non
+                ne chiedi la rimozione o finché non decido di toglierle; le
+                bozze non pubblicate vengono eliminate. I dati tecnici di
+                navigazione sono conservati dal fornitore di hosting per il
+                tempo strettamente necessario alla sicurezza e al
+                funzionamento del servizio.
               </p>
             </div>
 
@@ -168,7 +214,9 @@ export default function PrivacyPage() {
                 diritto di presentare reclamo al Garante per la protezione
                 dei dati personali (www.garanteprivacy.it) qualora ritenga
                 che il trattamento avvenga in violazione della normativa
-                vigente.
+                vigente. Se il trattamento si basa sul tuo consenso, puoi
+                revocarlo in qualsiasi momento scrivendo allo stesso
+                indirizzo.
               </p>
             </div>
 

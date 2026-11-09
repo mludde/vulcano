@@ -33,6 +33,12 @@ export async function POST(request: Request) {
       { status: 400 },
     );
   }
+  if (body.consent !== true) {
+    return NextResponse.json(
+      { ok: false, error: "Per inviare la recensione devi acconsentire alla sua pubblicazione." },
+      { status: 400 },
+    );
+  }
   if (!Number.isInteger(rating) || rating < 1 || rating > 5) {
     return NextResponse.json(
       { ok: false, error: "Scegli una valutazione da 1 a 5 stelle." },

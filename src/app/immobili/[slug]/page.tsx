@@ -72,6 +72,18 @@ export default async function PropertyDetailPage({ params }: Params) {
   ].filter(Boolean) as { key: FactKey; label: string; value: string; on: boolean }[];
   const floorPlans = property.floorPlans ?? [];
 
+  const energyLabel = (() => {
+    const { energyClass, energyIndex } = property;
+    if (!energyClass) return null;
+    if (energyClass === "in-attesa") return "in attesa di certificazione";
+    if (energyClass === "esente") return "immobile esente dall'APE";
+    const index =
+      typeof energyIndex === "number"
+        ? ` · ${energyIndex.toLocaleString("it-IT")} kWh/m² anno`
+        : "";
+    return `${energyClass}${index}`;
+  })();
+
   const canonicalUrl = `${siteConfig.url}/immobili/${slug}`;
 
   const breadcrumbJsonLd = {
@@ -164,6 +176,13 @@ export default async function PropertyDetailPage({ params }: Params) {
                   </li>
                 ))}
               </ul>
+
+              {energyLabel && (
+                <p className="mt-6 text-lg text-muted">
+                  <span className="font-semibold text-foreground">Classe energetica:</span>{" "}
+                  {energyLabel}
+                </p>
+              )}
 
               {property.description && (
                 <p className="mt-8 max-w-2xl whitespace-pre-line text-lg leading-8 text-muted">

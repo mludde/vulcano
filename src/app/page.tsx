@@ -10,16 +10,10 @@ import { SocialLinks } from "@/components/social-links";
 import { PhotoBand } from "@/components/photo-band";
 import { Reveal } from "@/components/reveal";
 import { Parallax } from "@/components/parallax";
-import { JsonLd } from "@/components/json-ld";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
-import {
-  featuredPropertiesQuery,
-  featuredReviewsQuery,
-  reviewsQuery,
-} from "@/sanity/lib/queries";
+import { featuredPropertiesQuery, featuredReviewsQuery } from "@/sanity/lib/queries";
 import { formatPrice, statusLabel } from "@/sanity/lib/format";
-import { siteConfig } from "@/lib/site-config";
 import type { SanityProperty, SanityReview } from "@/sanity/lib/types";
 
 export const revalidate = 60;
@@ -80,44 +74,14 @@ const services = [
 ];
 
 export default async function Home() {
-  const [featuredProperties, featuredReviews, allReviews] = await Promise.all([
+  const [featuredProperties, featuredReviews] = await Promise.all([
     client.fetch<SanityProperty[]>(featuredPropertiesQuery),
     client.fetch<SanityReview[]>(featuredReviewsQuery),
-    client.fetch<SanityReview[]>(reviewsQuery),
   ]);
-
-  const reviewsJsonLd =
-    allReviews.length > 0
-      ? {
-          "@context": "https://schema.org",
-          "@type": "RealEstateAgent",
-          name: siteConfig.name,
-          url: siteConfig.url,
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: (
-              allReviews.reduce((sum, review) => sum + review.rating, 0) /
-              allReviews.length
-            ).toFixed(1),
-            reviewCount: allReviews.length,
-          },
-          review: featuredReviews.map((review) => ({
-            "@type": "Review",
-            author: { "@type": "Person", name: review.authorName },
-            reviewRating: {
-              "@type": "Rating",
-              ratingValue: review.rating,
-              bestRating: 5,
-            },
-            reviewBody: review.text,
-          })),
-        }
-      : null;
 
   return (
     <>
       <SiteHeader />
-      {reviewsJsonLd && <JsonLd data={reviewsJsonLd} />}
       <main className="relative flex-1">
         <section className="relative overflow-hidden">
           <Parallax

@@ -15,6 +15,11 @@ export const siteConfig = {
   instagramUrl: "https://www.instagram.com/valentina.vulcano/",
   studioUrl: "https://vulcano-immobiliare.sanity.studio",
   rea: "82508",
+  // Legal details shown in the footer and privacy policy. Fill in as soon as
+  // they are available: empty values are simply not rendered in the footer,
+  // while the privacy policy keeps a visible "[da completare]" placeholder.
+  vatNumber: "", // P.IVA / Codice fiscale
+  streetAddress: "", // e.g. "Via Esempio 1, 11100 Aosta (AO)"
   address: {
     locality: "Aosta",
     region: "Valle d'Aosta",

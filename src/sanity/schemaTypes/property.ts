@@ -92,6 +92,38 @@ export const property = defineType({
       description: "Attivo = presente (Sì), spento = assente (No).",
       initialValue: false,
     }),
+    defineField({
+      name: "energyClass",
+      title: "Classe energetica (APE)",
+      type: "string",
+      description:
+        "Obbligatoria per legge negli annunci (D.Lgs. 192/2005). Se l'APE non c'è ancora, scegli «In attesa di certificazione».",
+      options: {
+        list: [
+          "A4",
+          "A3",
+          "A2",
+          "A1",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          { title: "In attesa di certificazione", value: "in-attesa" },
+          { title: "Esente dall'APE", value: "esente" },
+        ],
+      },
+      validation: (Rule) =>
+        Rule.warning("Indica la classe energetica: è obbligatoria negli annunci.").required(),
+    }),
+    defineField({
+      name: "energyIndex",
+      title: "Indice di prestazione energetica (kWh/m² anno)",
+      type: "number",
+      description: "EPgl,nren riportato sull'APE. Facoltativo se la classe è «in attesa» o «esente».",
+      validation: (Rule) => Rule.min(0),
+    }),
     defineField({ name: "description", title: "Descrizione", type: "text" }),
     defineField({
       name: "images",

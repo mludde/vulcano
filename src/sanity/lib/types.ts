@@ -19,6 +19,8 @@ export type SanityProperty = {
   balcony?: boolean;
   terrace?: boolean;
   garden?: boolean;
+  energyClass?: string;
+  energyIndex?: number;
   floorPlans?: { title?: string; url: string }[];
 };
 

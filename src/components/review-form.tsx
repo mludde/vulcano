@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import Link from "next/link";
 import { useTurnstile } from "@/lib/use-turnstile";
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -15,6 +16,7 @@ export function ReviewForm() {
   const [hover, setHover] = useState(0);
   const [text, setText] = useState("");
   const [website, setWebsite] = useState("");
+  const [consent, setConsent] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -53,6 +55,7 @@ export function ReviewForm() {
           name,
           rating,
           text,
+          consent,
           website,
           startedAt: startedAt.current,
           turnstileToken,
@@ -137,6 +140,28 @@ export function ReviewForm() {
           onChange={(event) => setText(event.target.value)}
           className={`resize-none ${fieldClass}`}
         />
+      </label>
+
+      <label className="flex items-start gap-3 text-sm leading-6 text-muted">
+        <input
+          required
+          type="checkbox"
+          checked={consent}
+          onChange={(event) => setConsent(event.target.checked)}
+          className="mt-1 h-4 w-4 shrink-0 accent-[#d9a2a7]"
+        />
+        <span>
+          Acconsento alla pubblicazione sul sito della mia recensione con il
+          nome indicato e confermo di aver letto l&apos;
+          <Link
+            href="/privacy"
+            target="_blank"
+            className="text-foreground underline decoration-accent decoration-2 underline-offset-4"
+          >
+            informativa privacy
+          </Link>
+          . Posso chiederne la rimozione in qualsiasi momento.
+        </span>
       </label>
 
       <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
