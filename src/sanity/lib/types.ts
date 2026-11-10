@@ -6,6 +6,7 @@ export type SanityProperty = {
   title: string;
   slug?: { current: string };
   status: "vendita" | "affitto";
+  sold?: boolean;
   location: string;
   price: number;
   priceUnit?: "totale" | "mese";

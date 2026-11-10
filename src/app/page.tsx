@@ -168,6 +168,7 @@ export default async function Home() {
                       location={property.location}
                       price={formatPrice(property.price, property.priceUnit)}
                       tag={statusLabel(property.status)}
+                      sold={property.sold}
                       imageUrl={
                         property.images?.[0]
                           ? urlFor(property.images[0]).width(800).height(600).url()

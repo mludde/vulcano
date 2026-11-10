@@ -11,6 +11,9 @@ export function PropertyListing({
   properties: (SanityProperty & { imageUrl?: string })[];
 }) {
   const [status, setStatus] = useState<"tutti" | "vendita" | "affitto">("tutti");
+  const [availability, setAvailability] = useState<"disponibili" | "venduti" | "tutti">(
+    "tutti",
+  );
   const [location, setLocation] = useState("tutte");
 
   const locations = useMemo(
@@ -18,11 +21,17 @@ export function PropertyListing({
     [properties],
   );
 
-  const filtered = properties.filter((p) => {
-    if (status !== "tutti" && p.status !== status) return false;
-    if (location !== "tutte" && p.location !== location) return false;
-    return true;
-  });
+  // Available properties first, sold ones at the end (stable sort keeps the
+  // original newest-first order inside each group).
+  const filtered = properties
+    .filter((p) => {
+      if (availability === "disponibili" && p.sold) return false;
+      if (availability === "venduti" && !p.sold) return false;
+      if (status !== "tutti" && p.status !== status) return false;
+      if (location !== "tutte" && p.location !== location) return false;
+      return true;
+    })
+    .sort((a, b) => Number(!!a.sold) - Number(!!b.sold));
 
   return (
     <div>
@@ -32,9 +41,19 @@ export function PropertyListing({
           onChange={(event) => setStatus(event.target.value as typeof status)}
           className="rounded-full border border-border bg-surface px-5 py-2.5 text-sm shadow-sm"
         >
-          <option value="tutti">Vendita e affitto</option>
-          <option value="vendita">Solo vendita</option>
-          <option value="affitto">Solo affitto</option>
+          <option value="tutti">Tutti</option>
+          <option value="vendita">Vendita</option>
+          <option value="affitto">Affitto</option>
+        </select>
+        <select
+          value={availability}
+          onChange={(event) => setAvailability(event.target.value as typeof availability)}
+          className="rounded-full border border-border bg-surface px-5 py-2.5 text-sm shadow-sm"
+          aria-label="Disponibilità"
+        >
+          <option value="tutti">Tutti</option>
+          <option value="disponibili">Disponibili</option>
+          <option value="venduti">Venduti</option>
         </select>
         <select
           value={location}
@@ -59,6 +78,7 @@ export function PropertyListing({
               location={property.location}
               price={formatPrice(property.price, property.priceUnit)}
               tag={statusLabel(property.status)}
+              sold={property.sold}
               imageUrl={property.imageUrl}
               href={property.slug?.current ? `/immobili/${property.slug.current}` : undefined}
             />

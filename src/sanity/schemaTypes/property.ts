@@ -31,6 +31,14 @@ export const property = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "sold",
+      title: "Venduto",
+      type: "boolean",
+      description:
+        "Attivo = l'immobile è stato venduto. Resta visibile sul sito con la scritta «Venduto» sulla copertina e compare solo con il filtro «Venduti» o «Tutti».",
+      initialValue: false,
+    }),
+    defineField({
       name: "location",
       title: "Località",
       type: "string",
