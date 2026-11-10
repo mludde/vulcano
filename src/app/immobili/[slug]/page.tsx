@@ -13,6 +13,7 @@ import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { propertyBySlugQuery } from "@/sanity/lib/queries";
 import { formatPrice, statusLabel } from "@/sanity/lib/format";
+import { SoldBadge } from "@/components/sold-badge";
 import { siteConfig } from "@/lib/site-config";
 import type { SanityProperty } from "@/sanity/lib/types";
 
@@ -114,7 +115,9 @@ export default async function PropertyDetailPage({ params }: Params) {
       "@type": "Offer",
       price: property.price,
       priceCurrency: "EUR",
-      availability: "https://schema.org/InStock",
+      availability: property.sold
+        ? "https://schema.org/SoldOut"
+        : "https://schema.org/InStock",
       businessFunction:
         property.status === "affitto"
           ? "https://schema.org/LeaseOut"
@@ -144,6 +147,7 @@ export default async function PropertyDetailPage({ params }: Params) {
                 sizes="100vw"
                 className="object-cover"
               />
+              {property.sold && <SoldBadge size="lg" />}
             </div>
           ) : (
             <div className="mt-8 aspect-[16/9] rounded-[28px] bg-surface-2" />

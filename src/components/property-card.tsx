@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SoldBadge } from "@/components/sold-badge";
 
 export type Property = {
   title: string;
@@ -8,9 +9,10 @@ export type Property = {
   tag: string;
   imageUrl?: string;
   href?: string;
+  sold?: boolean;
 };
 
-export function PropertyCard({ title, location, price, tag, imageUrl, href }: Property) {
+export function PropertyCard({ title, location, price, tag, imageUrl, href, sold }: Property) {
   const card = (
     <div className="group">
       <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] bg-surface-2 shadow-[0_24px_50px_-30px_rgba(217,162,167,0.6)]">
@@ -23,6 +25,7 @@ export function PropertyCard({ title, location, price, tag, imageUrl, href }: Pr
             className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.05]"
           />
         )}
+        {sold && <SoldBadge />}
         <span className="absolute left-4 top-4 rounded-full bg-background/90 px-3.5 py-1.5 text-[0.8542rem] font-semibold uppercase tracking-[0.16em] text-foreground backdrop-blur">
           {tag}
         </span>
