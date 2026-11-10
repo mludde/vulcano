@@ -76,7 +76,16 @@ export const property = defineType({
       name: "garage",
       title: "Garage",
       type: "boolean",
-      description: "Attivo = presente (Sì), spento = assente (No).",
+      description:
+        "Attivo = presente. Sul sito Garage e Posto auto condividono un'unica icona: con entrambi attivi mostra 2, con uno solo mostra 1, con nessuno l'icona non compare.",
+      initialValue: false,
+    }),
+    defineField({
+      name: "parkingSpace",
+      title: "Posto auto",
+      type: "boolean",
+      description:
+        "Attivo = presente. Sul sito Garage e Posto auto condividono un'unica icona: con entrambi attivi mostra 2, con uno solo mostra 1, con nessuno l'icona non compare.",
       initialValue: false,
     }),
     defineField({
@@ -87,8 +96,8 @@ export const property = defineType({
       initialValue: false,
     }),
     defineField({
-      name: "terrace",
-      title: "Terrazzo",
+      name: "elevator",
+      title: "Ascensore",
       type: "boolean",
       description: "Attivo = presente (Sì), spento = assente (No).",
       initialValue: false,

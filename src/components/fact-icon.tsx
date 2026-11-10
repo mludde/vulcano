@@ -4,7 +4,7 @@ export type FactKey =
   | "bathrooms"
   | "garage"
   | "balcony"
-  | "terrace"
+  | "elevator"
   | "garden";
 
 const paths: Record<FactKey, React.ReactNode> = {
@@ -38,22 +38,22 @@ const paths: Record<FactKey, React.ReactNode> = {
       <circle cx="17" cy="16.5" r="1.8" />
     </>
   ),
-  // balcone: portafinestra con ringhiera
+  // balcone: portafinestra a croce sopra una balaustra a riquadri
   balcony: (
     <>
-      <path d="M8 11.5V3.5h8v8" />
-      <path d="M12 3.5v8" />
-      <path d="M3 14.5h18" />
-      <path d="M5.5 14.5V19M9.5 14.5V19M14.5 14.5V19M18.5 14.5V19" />
-      <rect x="2" y="19" width="20" height="2.5" rx="0.8" />
+      <path d="M6.5 13V4h11v9" />
+      <path d="M12 4v5M6.5 9h11" strokeWidth="1.3" />
+      <path d="M3 13h18v7.5H3Z" />
+      <path d="M9 13v7.5M15 13v7.5" strokeWidth="1.5" />
     </>
   ),
-  // terrazzo: sdraio con sole
-  terrace: (
+  // ascensore: cabina con porte e frecce su/giù
+  elevator: (
     <>
-      <path d="M4.5 7l6 7h9.5" />
-      <path d="M20 14v5.5M10.5 14l-2 5.5M3 19.5h18" />
-      <circle cx="18" cy="6" r="2.5" />
+      <rect x="4.5" y="3" width="15" height="18" rx="0.6" />
+      <path d="M12 3v18" strokeWidth="1" />
+      <path d="M8.25 18V6.5M6.6 8.1l1.65-1.65 1.65 1.65" strokeWidth="1.15" />
+      <path d="M15.75 6v11.5M14.1 15.9l1.65 1.65 1.65-1.65" strokeWidth="1.15" />
     </>
   ),
   // giardino: pianta che germoglia

@@ -17,8 +17,9 @@ export type SanityProperty = {
   images?: SanityImage[];
   address?: string;
   garage?: boolean;
+  parkingSpace?: boolean;
   balcony?: boolean;
-  terrace?: boolean;
+  elevator?: boolean;
   garden?: boolean;
   energyClass?: string;
   energyIndex?: number;

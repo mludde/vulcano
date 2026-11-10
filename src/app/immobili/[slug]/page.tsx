@@ -56,6 +56,9 @@ export default async function PropertyDetailPage({ params }: Params) {
 
   const images = property.images ?? [];
   const yesNo = (value?: boolean) => ({ value: value ? "Sì" : "No", on: Boolean(value) });
+  // Garage and parking space share one icon: it shows how many of the two
+  // exist (1 or 2) and is hidden when there is neither.
+  const parkingCount = Number(Boolean(property.garage)) + Number(Boolean(property.parkingSpace));
   const facts: { key: FactKey; label: string; value: string; on: boolean }[] = [
     property.size
       ? { key: "area", label: "Superficie", value: `${property.size} mq`, on: true }
@@ -66,9 +69,11 @@ export default async function PropertyDetailPage({ params }: Params) {
     property.bathrooms
       ? { key: "bathrooms", label: "Bagni", value: String(property.bathrooms), on: true }
       : null,
-    { key: "garage", label: "Garage", ...yesNo(property.garage) },
+    parkingCount > 0
+      ? { key: "garage", label: "Garage/Posto auto", value: String(parkingCount), on: true }
+      : null,
     { key: "balcony", label: "Balcone", ...yesNo(property.balcony) },
-    { key: "terrace", label: "Terrazzo", ...yesNo(property.terrace) },
+    { key: "elevator", label: "Ascensore", ...yesNo(property.elevator) },
     { key: "garden", label: "Giardino", ...yesNo(property.garden) },
   ].filter(Boolean) as { key: FactKey; label: string; value: string; on: boolean }[];
   const floorPlans = property.floorPlans ?? [];
