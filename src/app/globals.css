@@ -67,6 +67,16 @@ body {
     box-shadow: 0 20px 36px -14px rgb(var(--accent-rgb) / 0.85);
   }
 
+  /* Muted azure, taken from the watercolour wash in the home hero. */
+  .btn-azure {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#a3c9d1] px-7 py-3.5 text-sm font-semibold text-accent-foreground transition duration-300 hover:-translate-y-0.5 hover:bg-[#92bcc5];
+    box-shadow: 0 14px 30px -14px rgb(121 170 182 / 0.75);
+  }
+
+  .btn-azure:hover {
+    box-shadow: 0 20px 36px -14px rgb(121 170 182 / 0.85);
+  }
+
   .btn-link {
     @apply inline-flex items-center gap-2 text-sm font-semibold text-foreground underline decoration-border decoration-2 underline-offset-[6px] transition hover:decoration-accent;
   }

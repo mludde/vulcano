@@ -41,10 +41,6 @@ export default async function ImmobiliPage() {
             <h1 className="display-xl mt-7">
               Proposte immobiliari
             </h1>
-            <p className="mt-7 max-w-lg text-lg leading-8 text-muted">
-              Una selezione di case in vendita e in affitto, valutate e
-              seguite direttamente da me.
-            </p>
           </Reveal>
         </section>
 
