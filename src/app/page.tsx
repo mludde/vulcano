@@ -61,7 +61,7 @@ const services = [
   },
   {
     title: "Valorizzazione e consulenza immagine",
-    body: "Per presentare al meglio la tua casa, perché “non c'è una seconda occasione di fare una buona prima impressione”.",
+    body: "Per presentare al meglio la tua casa, perché “non c'è una seconda occasione per fare una buona prima impressione”.",
   },
   {
     title: "Strategia personalizzata",
@@ -138,8 +138,7 @@ export default async function Home() {
         <section id="servizi" className="scroll-mt-24">
           <div className="mx-auto grid max-w-[1800px] gap-10 px-6 py-24 sm:px-10 md:grid-cols-[1fr_1.7fr] md:gap-20 md:py-32 lg:px-16">
             <Reveal className="md:sticky md:top-32 md:self-start">
-              <p className="eyebrow">Servizi</p>
-              <h2 className="display-lg mt-5">I miei servizi</h2>
+              <h2 className="display-lg">I miei servizi</h2>
             </Reveal>
             <ServicesList services={services} />
           </div>

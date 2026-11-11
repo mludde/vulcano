@@ -61,7 +61,7 @@ export function BookConsultationButton({
                 <button
                   type="button"
                   onClick={() => goTo("COMPRARE")}
-                  className="w-full rounded-full border border-border px-7 py-3.5 text-sm font-semibold transition hover:border-foreground"
+                  className="btn-azure w-full"
                 >
                   Desideri comprare?
                 </button>
