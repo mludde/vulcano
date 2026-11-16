@@ -66,10 +66,6 @@ export default async function RecensioniPage() {
             <div className="mx-auto max-w-2xl">
               <p className="eyebrow">La tua opinione</p>
               <h2 className="display-lg mt-5">Lascia una recensione</h2>
-              <p className="mt-5 text-lg leading-8 text-muted">
-                Hai lavorato con me? Racconta la tua esperienza: la leggerò e la
-                pubblicherò sul sito.
-              </p>
               <div className="card-soft mt-8 p-8 sm:p-10">
                 <ReviewForm />
               </div>
